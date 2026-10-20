@@ -3,6 +3,17 @@ html, body {
     padding: 0;
 }
 
+#bandeau_onglets h5 a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+#bandeau_onglets a:hover {
+    color: #9B7B36;
+}
+
 h5{
     font-size: 20px;
     color: black;

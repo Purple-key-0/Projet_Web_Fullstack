@@ -3,12 +3,29 @@ html, body {
     padding: 0;
 }
 
+#bandeau_onglets h5 a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+#bandeau_onglets a:hover {
+    color: #9B7B36;
+}
+
+h5{
+    font-size: 20px;
+    color: black;
+}
+
 #en_tete {
     background-color: #FCF6E3;
     margin: 0;
     fill: #FCF6E3;
     display: flex;
     align-items: right;
+    justify-content: space-between;
     height: 60px;
     width: 100%;
 }
@@ -27,4 +44,34 @@ html, body {
     height: 60px;
     width: 100%;
 }
+
+#connection {
+    text-align: right;
+}
+
+#en_tete #connection {
+    text-align: right;
+    margin-right: 20px;
+}
+
+#bandeau_onglets{
+    border: 1px solid #2a2a2a;
+    border-radius: 20px;
+    margin: auto;
+    height: 35px;
+    width: 600px;
+    font-size: 10px;
+    justify-content: center;
+    background-color: #FCF6E3;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: right;
+}
+
+#bandeau_onglets > * + * {
+    border-left: 1px solid black;
+    padding-left: 5px;
+}
+
 
