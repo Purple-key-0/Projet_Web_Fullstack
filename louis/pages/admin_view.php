@@ -1,5 +1,9 @@
 <?php
 
+
+$artiste = $_GET['artiste'];
+
+
 $host = "sql7.freesqldatabase.com";
 $dbName = "sql7839244";
 $user = "sql7839244";
@@ -8,20 +12,17 @@ $pass = "k4ySRIVWAK";
 // Connexion à la base de données MySQL
 $dbh = new PDO("mysql:host=$host;dbname=$dbName", $user, $pass);
 
-// Définition de la requête MySQL
-$query  = "SELECT last_name, first_name FROM user";
+$insertQuery = "INSERT INTO events VALUES (NULL, '$artiste')";
+$stt = $dbh->query($insertQuery);
 
-// Envoi de la requête à la base de données et récupération des résultats de la requête
-$stt = $dbh->query($query);
-$result = $stt->fetchAll();
-
-$htmlTable = "";
-foreach ($result as $value) {
-    $htmlTable .= "<tr>";
-    $htmlTable .= "<td>{$value['last_name']}</td>";
-    $htmlTable .= "<td>{$value['first_name']}</td>";
-    $htmlTable .= "</tr>";
+if ($stt === false) {
+    echo "Une erreur est survenue";
+} else {
+    echo "Événement créé";
 }
+
+
+$artiste = $_POST['artiste'];
 
 ?>
 <!DOCTYPE html>
