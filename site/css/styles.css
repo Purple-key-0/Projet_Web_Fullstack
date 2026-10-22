@@ -3,14 +3,18 @@ html, body {
     padding: 0;
 }
 
-#bandeau_onglets h5 a {
+*{
+    box-sizing: border-box;
+}
+
+#bandeau_onglets h5 a, div h4 a {
     text-decoration: none;
     color: black;
     font-size: 18px;
     font-weight: normal;
 }
 
-#bandeau_onglets a:hover {
+#bandeau_onglets a:hover, div h4 a:hover {
     color: #9B7B36;
 }
 
@@ -96,6 +100,503 @@ h5{
     list-style: none;
     background-color: white;
     border: 1px solid #ccc;
+    z-index: 1000;
+}
+
+#liste-evenements li a {
+    display: block;
+    padding: 12px;
+    color: black;
+    text-decoration: none;
+}
+
+#liste-evenements li a:hover {
+    background-color: #eee;
+}
+
+.menu-container {
+    position: relative;
+    display: inline-block;
+    margin-left: 15px;
+}
+
+#logo_menu {
+    height: 40px;
+    cursor: pointer;
+}
+
+#menu_deroulant {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 200px;
+    background-color: #FCF6E3;
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    overflow: hidden;
+}
+
+#menu_deroulant a {
+    display: block;
+    padding: 12px;
+    color: black;
+    text-decoration: none;
+}
+
+#menu_deroulant a:hover {
+    background-color: #eee4c8;
+}
+
+.menu-cache {
+    display: none;
+}
+
+.menu-visible {
+    display: block;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+}
+
+.register-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+}
+
+
+
+/* LOUIS*
+
+/* LOUIS*/
+
+/* LOUIS*/
+
+/* LOUIS*/
+
+/* LOUIS*/
+
+/* LOUIS*/
+
+/* LOUIS*/
+
+/* LOUIS*/
+
+/* LOUIS*/
+
+/* LOUIS*/
+
+/* LOUIS*/
+
+/* LOUIS*/
+
+/* LOUIS*/
+
+/* LOUIS*/
+
+/* LOUIS*/
+
+/* LOUIS*/
+
+/* LOUIS*/
+
+/* LOUIS*/
+
+/* LOUIS*/
+
+/* LOUIS*/
+
+/* LOUIS*/
+
+/* LOUIS*/
+
+/* LOUIS*/
+
+
+
+
+/* ============================= */
+/* FORMULAIRES GÉNÉRAUX          */
+/* ============================= */
+
+.container {
+    border: 1px solid #2a2a2a;
+    border-radius: 20px;
+    margin: 40px auto;
+    padding: 25px;
+    width: 600px;
+    max-width: calc(100% - 40px);
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* ============================= */
+/* TITRE DE LA PAGE PAIEMENT     */
+/* ============================= */
+
+.page_paiement {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto 20px;
+}
+
+.page_paiement h1 {
+    margin-bottom: 8px;
+}
+
+.page_paiement p {
+    margin-top: 0;
+    color: #555;
+}
+
+/* ============================= */
+/* DISPOSITION DES DEUX BOÎTES   */
+/* ============================= */
+
+.page-paiement-contenu {
+    display: grid;
+
+    /* Formulaire plus large que le récapitulatif */
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+
+    gap: 25px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto 40px;
+    align-items: start;
+}
+
+/* ============================= */
+/* BOÎTE INFORMATIONS PAIEMENT   */
+/* ============================= */
+
+.container_paiement {
+    min-width: 0;
+    width: 100%;
+    margin: 0;
+    padding: 25px;
+
+    border: 1px solid #2a2a2a;
+    border-radius: 20px;
+    background-color: #fffdfd;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+}
+
+.container_paiement h2,
+.recapitulatif h2 {
+    margin-top: 0;
+    font-size: 22px;
+}
+
+/* Logos Visa et Mastercard */
+
+.cartes-bancaires {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.cartes-bancaires img {
+    width: auto;
+    max-width: 65px;
+    height: 35px;
+    object-fit: contain;
+}
+
+/* Formulaire de paiement */
+
+.container_paiement form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.champ {
+    min-width: 0;
+}
+
+.champ label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Champs et icônes */
+
+.form-group {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    background-color: white;
+}
+
+.form-group:focus-within {
+    border-color: #9B7B36;
+}
+
+.form-group input {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+    border: none;
+    outline: none;
+    background: transparent;
+    font: inherit;
+}
+
+.icone-champ {
+    width: 60px;
+    height: 50px;
+    object-fit: contain;
+    margin: 0 10px;
+    flex-shrink: 0;
+}
+
+/* Expiration et CVV */
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+/* Conditions générales */
+
+.confirmation {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 5px 0;
+}
+
+.confirmation input {
+    width: auto;
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.confirmation label {
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* Bouton payer */
+
+#submit {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 7px;
+    background-color: #202020;
+    color: white;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#submit:hover {
+    background-color: #9B7B36;
+}
+
+/* ============================= */
+/* BOÎTE RÉCAPITULATIF            */
+/* ============================= */
+
+.recapitulatif {
+    min-width: 0;
+    width: 100%;
+    margin: 0;
+    padding: 25px;
+
+    border: 1px solid #2a2a2a;
+    border-radius: 20px;
+    background-color: #fffdfd;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+}
+
+.recapitulatif h2 {
+    margin-bottom: 10px;
+}
+
+.recapitulatif h3 {
+    margin-top: 0;
+}
+
+.recap p {
+    line-height: 1.5;
+}
+
+.recap hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+}
+
+.ligne-prix,
+.prix-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin: 15px 0;
+}
+
+.ligne-prix span:last-child,
+.prix-total strong:last-child {
+    white-space: nowrap;
+}
+
+.prix-total {
+    padding: 15px;
+    border-radius: 7px;
+    background-color: #FCF6E3;
+    color: #17191c;
+}
+
+.paiement-securise {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+}
+
+.paiement-securise p {
+    font-weight: bold;
+}
+
+.paiement-securise small {
+    color: #666;
+    line-height: 1.5;
+}
+
+/* ============================= */
+/* TABLETTES ET PETITS ÉCRANS    */
+/* ============================= */
+
+@media (max-width: 800px) {
+
+    .page-paiement-contenu {
+        grid-template-columns: minmax(0, 1fr);
+        width: 95%;
+        gap: 20px;
+    }
+
+    .page_paiement {
+        width: 95%;
+    }
+}
+
+/* ============================= */
+/* TÉLÉPHONES                    */
+/* ============================= */
+
+@media (max-width: 480px) {
+
+    .page-paiement-contenu {
+        width: 100%;
+        padding: 0 12px;
+        gap: 15px;
+    }
+
+    .page_paiement {
+        width: 100%;
+        padding: 0 12px;
+    }
+
+    .container_paiement,
+    .recapitulatif {
+        padding: 18px;
+    }
+
+    .form-row {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    #bandeau_onglets {
+        height: auto;
+        border-radius: 12px;
+        gap: 8px;
+    }
+
+    #bandeau_onglets > * + * {
+        padding-left: 8px;
+    }
+}
+
+/*__________________*/
+
+
+
+
+
+.rechercher {
+    position: relative;
+    width: 350px;
+    margin: 20px auto;
+}
+
+.gradur {
+    display:block;
+    margin: 20px auto 0;
+    width: 500px;
+    max-width: 100%;
+}
+
+#barre-de-recherche {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#liste-evenements {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
     z-index: 1000;
 }
 
