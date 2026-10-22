@@ -58,14 +58,20 @@ foreach ($result as $value) {
     <h5><a href="admin_view.php">Gestion d'Événements</a></h5>
 </header>
 <body>
-    <div class="login-container">
-        <input type="text" placeholder="Nom d'utilisateur">
-        <input type="password" placeholder="Mot de passe">
-        <button>Se connecter</button>
-    </div>
-    <div class="register-container">
+    <form action="../php/traitement_connexion.php">
+        <div>
+            <label for="email">Votre e-mail</label>
+            <input type="email" name="email" id="email">
+        </div>
+        <div>
+            <label for="password">Votre mot de passe</label>
+            <input type="password" name="password" id="password">
+        </div>
+        <input type="submit" value="Se connecter">
+        <div class="register-container">
         <p>Pas encore de compte ?</p>
-        <button>S'inscrire</button>
+        <a href="inscription.php">S'inscrire</a>
     </div>
+    </form>
 </body>
 </html>
