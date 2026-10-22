@@ -29,27 +29,13 @@ foreach ($result as $value) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Événements</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <script src="../js/index.js"></script>
+    <title>Whithelist - Événements</title>
+    <link rel="stylesheet" href="../../site/css/styles.css">
 </head>
-<header id="en_tete">
-    <div class="menu-container">
-    <img src="../assets/img/logo_menu.svg"
-         id="logo_menu"
-         alt="Ouvrir le menu"
-         onclick="toggleMenu()">
-
-    <div id="menu_deroulant" class="menu-cache">
-        <a href="index.php">Accueil</a>
-        <a href="evenements.php">Événements</a>
-        <a href="reservations.php">Mes Réservations</a>
-        <a href="admin_view.php">Gestion d'Événements</a>
-    </div>
-</div>
-    <div><h4 id="connection"><a href="connexion.php">Se connecter</a></h4></div>
+<header class="titre">
+    <h1>Événements</h1>
+    <h5 id="lien-connexion"> <a href="Se_connecter.php">Se connecter</a> </h5>
 </header>
-<header id="titre_site"><h1>Événements</h1></header>
 <header id="bandeau_onglets">
     <h5 id="h5_1"><a href="index.php">Accueil</a></h5>
     <h5><a href="evenements.php">Événements</a></h5>
@@ -57,28 +43,47 @@ foreach ($result as $value) {
     <h5><a href="admin_view.php">Gestion d'Événements</a></h5>
 </header>
 <body>
-    <header class="eve">
-        <h5> <a href="filtrer.php">Filtrer</a> </h5>
-        <h5> <a href="connexion.php">Se connecter</a> </h5>
-    </header>
-    <header class="Creer">
-        <h3>
-            <button type="button"> Créer un événement</button>
-        </h3>
-    </header>
+    
     <div class="rechercher">
-        <input type="search" id ="barre-de-recherche" placeholder="Rechercher un événement">
+    <input
+        type="search"
+        id="barre-de-recherche"
+        placeholder="Rechercher un événement"
+        autocomplete="off"
+    >
 
-        <ul id="liste-evenements">
-            <li><a href="seance.php" data-mots-cles="gradur décennie rap concert">Décennie - Gradur</a></li>
-        </ul>
-    </div>
+    <ul id="liste-evenements">
+        <li>
+            <a href="seance.html" data-mots-cles="Musique Concert Rap français Hip-hop Rap Musique urbaine Événement musical Live / spectacle musical Culture Sortie / événement">
+                Décennie - Gradur
+            </a>
+        </li>
+
+        <li>
+            <a href="festival.html" data-mots-cles="festival musique été">
+                Festival de musique
+            </a>
+        </li>
+    </ul>
+</div>
     <header class="nouveaute">
         <h2>Nouveauté !</h2>
-        <p>Vendredi 26 Novembre 2026</p>
-        <h3> <a href="seance.php">Concert Décennie - Gradur : Bordeaux</a> </h3>
+
+        <div class="nouveaute-infos">
+            <p><i>Vendredi 26 Novembre 2026  :</i></p>
+            <h3> <a href="seance.html" class="nouveaute-lien">Concert Décennie - Gradur : Bordeaux</a> </h3>
+        </div>
+        <div class="gradur">
+            <img src="../assets/img/Decennie.jpg" alt="Gradur" class="nouveaute-image">
+        </div>
     </header>
-    <script src="evenements.js"></script>
+    <header class="delete-edit">
+        <h3>
+            <button type="button"> Modifier l'événement</button>
+            <button type="button"> Supprimer l'événement</button>
+        </h3>
+    </header>
+    <script src="../js/evenements.js"></script>
 
 </body>
 </html>
