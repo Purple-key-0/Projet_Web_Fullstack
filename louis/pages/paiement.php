@@ -25,6 +25,7 @@ foreach ($result as $value) {
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
