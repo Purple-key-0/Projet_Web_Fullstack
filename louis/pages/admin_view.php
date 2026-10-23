@@ -1,9 +1,5 @@
 <?php
 
-
-$artiste = $_GET['artiste'];
-
-
 $host = "sql7.freesqldatabase.com";
 $dbName = "sql7839244";
 $user = "sql7839244";
@@ -12,19 +8,25 @@ $pass = "k4ySRIVWAK";
 // Connexion à la base de données MySQL
 $dbh = new PDO("mysql:host=$host;dbname=$dbName", $user, $pass);
 
-$insertQuery = "INSERT INTO events VALUES (NULL, '$artiste')";
-$stt = $dbh->query($insertQuery);
+// Définition de la requête MySQL
+$query  = "SELECT artiste_event, nom_event, lieu_event, description_event, type_event, date_event, heure_event FROM events";
 
-if ($stt === false) {
-    echo "Une erreur est survenue";
-} else {
-    echo "Événement créé";
+
+
+$htmlTable = "";
+foreach ($result as $value) {
+    $htmlTable .= "<tr>";
+    $htmlTable .= "<td>{$value['artiste_event']}</td>";
+    $htmlTable .= "<td>{$value['nom_event']}</td>";
+    $htmlTable .= "<td>{$value['lieu_event']}</td>";
+    $htmlTable .= "<td>{$value['description_event']}</td>";
+    $htmlTable .= "<td>{$value['type_event']}</td>";
+    $htmlTable .= "<td>{$value['date_event']}</td>";
+    $htmlTable .= "<td>{$value['heure_event']}</td>";
 }
 
-
-$artiste = $_POST['artiste'];
-
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -49,7 +51,7 @@ $artiste = $_POST['artiste'];
     <main class="container">
         <h1>Créer un événement</h1>
 
-        <form id="event-form">
+        <form action="../php/traitement_creation_event.php" method="post">
             <label for="artiste">Type d'événement</label>
             <div class="form-group">
                 <select id="categorie" name="categorie" required>
@@ -62,7 +64,7 @@ $artiste = $_POST['artiste'];
             <label for="artiste">Artiste de l'événement</label>
             <div class="form-group">
                 
-                <input type="text" id="artiste" name="artiste" placeholder="Artiste de l'événement" required>
+                <input type="text" name="artiste" placeholder="Artiste de l'événement" required>
             </div>
 
             <label for="event">Nom de l'événement</label>
@@ -94,9 +96,10 @@ $artiste = $_POST['artiste'];
             <label for="description">Description de l'événement</label>
             <div class="form-group">
                 
-                <textarea id="description" name="description" placeholder="Description de l'événement" rows="5"></textarea>
+                <textarea id="description" name="description" placeholder="Description de l'événement" rows="5" required></textarea>
             </div>
 
+            
             <fieldset class="prices">
                 <legend>Prix des places (€)</legend>
 
@@ -125,9 +128,7 @@ $artiste = $_POST['artiste'];
                 <input type="file" id="image" name="image" accept="image/*">
             </div>
 
-            <button type="submit" id="submit">
-                Créer l'événement
-            </button>
+            <input type="submit" id="submit" value="Créer l'événement">
 
         </form>
     </main>
