@@ -1,28 +1,5 @@
 <?php
 session_start();
-require __DIR__ . '/../config/config.php';
-
-// Connexion à la base de données MySQL
-$dbh = new PDO("mysql:host=$host;dbname=$dbName", $user, $pass);
-
-// Définition de la requête MySQL
-$query  = "SELECT artiste_event, nom_event, lieu_event, description_event, type_event, date_event, heure_event FROM events";
-
-$stt = $dbh->query($query);
-$result = $stt->fetchAll();
-
-$htmlTable = "";
-foreach ($result as $value) {
-    $htmlTable .= "<tr>";
-    $htmlTable .= "<td>{$value['artiste_event']}</td>";
-    $htmlTable .= "<td>{$value['nom_event']}</td>";
-    $htmlTable .= "<td>{$value['lieu_event']}</td>";
-    $htmlTable .= "<td>{$value['description_event']}</td>";
-    $htmlTable .= "<td>{$value['type_event']}</td>";
-    $htmlTable .= "<td>{$value['date_event']}</td>";
-    $htmlTable .= "<td>{$value['heure_event']}</td>";
-}
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -40,7 +17,7 @@ foreach ($result as $value) {
          id="logo_menu"
          alt="Ouvrir le menu"
          onclick="toggleMenu()">
- 
+
     <div id="menu_deroulant" class="menu-cache">
         <a href="index.php">Accueil</a>
         <a href="profil.php">Mon Compte</a>
@@ -55,7 +32,8 @@ foreach ($result as $value) {
         <?php if (!isset($_SESSION['user'])):?>
             <a href="connexion.php">Se connecter</a>
         <?php else: ?>
-            <a href="../php/deconnexion.php">Se déconnecter</a>
+            <?php session_destroy(); ?>
+            <a href="index.php">Se déconnecter</a>
         <?php endif; ?>
     </h4></div>
 </header>
@@ -70,22 +48,23 @@ foreach ($result as $value) {
         <?php endif; ?>
     </h5>
 </header>
- 
-    <!-- Titre de la page -->
+
+    
     <header class="page_paiement">
         <h1>Créer un événement</h1>
         <p>Renseignez les informations de l'événement</p>
     </header>
- 
-    <!-- Le formulaire contient les deux boîtes (même disposition que paiement.php) -->
-    <form id="event-form" class="page-paiement-contenu" action="" method="post" enctype="multipart/form-data">
- 
-        <!-- Informations de l'événement -->
+
+    
+    <main class="infos_event_boite">
+    <form id="event-form" class="page-paiement-contenu" action="ajouter_event.php" method="post">
+
+        
         <section class="container_paiement">
- 
+
             <h2>Informations de l'événement</h2>
- 
-            <!-- Type d'événement -->
+
+            
             <div class="champ">
                 <label for="categorie">Type d'événement</label>
                 <div class="form-group">
@@ -96,24 +75,24 @@ foreach ($result as $value) {
                     </select>
                 </div>
             </div>
- 
-            <!-- Artiste -->
+
+            
             <div class="champ">
                 <label for="artiste">Artiste de l'événement</label>
                 <div class="form-group">
                     <input type="text" id="artiste" name="artiste" placeholder="Artiste de l'événement" required>
                 </div>
             </div>
- 
-            <!-- Nom -->
+
+            
             <div class="champ">
                 <label for="event">Nom de l'événement</label>
                 <div class="form-group">
                     <input type="text" id="event" name="event" placeholder="Nom de l'événement" required>
                 </div>
             </div>
- 
-            <!-- Date et heure -->
+
+            
             <div class="form-row">
                 <div class="champ">
                     <label for="date">Date de l'événement</label>
@@ -121,7 +100,7 @@ foreach ($result as $value) {
                         <input type="date" id="date" name="date" required>
                     </div>
                 </div>
- 
+
                 <div class="champ">
                     <label for="time">Heure de l'événement</label>
                     <div class="form-group">
@@ -129,43 +108,43 @@ foreach ($result as $value) {
                     </div>
                 </div>
             </div>
- 
-            <!-- Lieu -->
+
+           
             <div class="champ">
                 <label for="lieu">Lieu de l'événement</label>
                 <div class="form-group">
                     <input type="text" id="lieu" name="lieu" placeholder="Lieu de l'événement" required>
                 </div>
             </div>
- 
-            <!-- Description -->
+
+            
             <div class="champ">
                 <label for="description">Description de l'événement</label>
                 <div class="form-group">
                     <textarea id="description" name="description" placeholder="Description de l'événement" rows="5"></textarea>
                 </div>
             </div>
- 
-            <!-- Image -->
+
+           
             <div class="champ">
                 <label for="image">Image de l'événement</label>
                 <div class="form-group">
                     <input type="file" id="image" name="image" accept="image/*">
                 </div>
             </div>
- 
-            <!-- Bouton de création -->
+
+            
             <button type="submit" id="submit">
                 Créer l'événement →
             </button>
- 
+
         </section>
- 
-        <!-- Prix des places -->
+
+        
         <aside class="recapitulatif">
- 
+
             <h2>Prix des places</h2>
- 
+
             <div class="champ">
                 <label for="carre-or">Carré OR</label>
                 <div class="form-group">
@@ -173,7 +152,7 @@ foreach ($result as $value) {
                     <span class="devise">€</span>
                 </div>
             </div>
- 
+
             <div class="champ">
                 <label for="gradins">Gradins</label>
                 <div class="form-group">
@@ -181,7 +160,7 @@ foreach ($result as $value) {
                     <span class="devise">€</span>
                 </div>
             </div>
- 
+
             <div class="champ">
                 <label for="fosse">Fosse</label>
                 <div class="form-group">
@@ -189,10 +168,11 @@ foreach ($result as $value) {
                     <span class="devise">€</span>
                 </div>
             </div>
- 
+
         </aside>
- 
+
     </form>
- 
+    </main>
+
 </body>
 </html>

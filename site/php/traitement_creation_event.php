@@ -1,11 +1,8 @@
-
 <?php
-
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit("Le formulaire n'a pas été envoyé.");
 }
-
 
 $artiste = $_POST['artiste'] ?? '';
 $nom_event = $_POST['event'] ?? '';
@@ -15,13 +12,14 @@ $type_event = $_POST['categorie'] ?? '';
 $date_event = $_POST['date'] ?? '';
 $heure_event = $_POST['time'] ?? '';
 
-
-
 if (trim($artiste) === '') {
     exit("Le nom de l'artiste est obligatoire.");
 }
 
-require __DIR__ . '/../config/config.php';
+$host = "sql7.freesqldatabase.com";
+$dbName = "sql7839244";
+$user = "sql7839244";
+$pass = "METS_ICI_TON_MOT_DE_PASSE";
 
 try {
     $dbh = new PDO(
@@ -39,7 +37,6 @@ try {
 
     $stmt = $dbh->prepare($insertQuery);
 
-
     $stmt->execute([
         'artiste' => $artiste,
         'nom_event' => $nom_event,
@@ -54,6 +51,6 @@ try {
 
 } catch (PDOException $e) {
     error_log($e->getMessage());
-    exit("Une erreur est survenue lors de l'enregistrement.");
+    // DÉBOGAGE : affiche la vraie cause de l'erreur. À remplacer plus tard par un message simple.
+    exit("Erreur SQL : " . $e->getMessage());
 }
-
