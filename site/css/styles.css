@@ -2,27 +2,27 @@ html, body {
     margin: 0;
     padding: 0;
 }
-
+ 
 *{
     box-sizing: border-box;
 }
-
+ 
 #bandeau_onglets h5 a, div h4 a {
     text-decoration: none;
     color: black;
     font-size: 18px;
     font-weight: normal;
 }
-
+ 
 #bandeau_onglets a:hover, div h4 a:hover {
     color: #9B7B36;
 }
-
+ 
 h5{
     font-size: 20px;
     color: black;
 }
-
+ 
 #en_tete {
     background-color: #FCF6E3;
     margin: 0;
@@ -33,11 +33,11 @@ h5{
     height: 60px;
     width: 100%;
 }
-
+ 
 #en_tete #connection{
     text-align: left;
 }
-
+ 
 #titre_site {
     background-color: white;
     margin: 0;
@@ -48,16 +48,16 @@ h5{
     height: 60px;
     width: 100%;
 }
-
+ 
 #connection {
     text-align: right;
 }
-
+ 
 #en_tete #connection {
     text-align: right;
     margin-right: 20px;
 }
-
+ 
 #bandeau_onglets{
     border: 1px solid #2a2a2a;
     border-radius: 20px;
@@ -72,23 +72,23 @@ h5{
     gap: 10px;
     text-align: right;
 }
-
+ 
 #bandeau_onglets > * + * {
     border-left: 1px solid black;
     padding-left: 5px;
 }
-
+ 
 .rechercher {
     position: relative;
     width: 350px;
 }
-
+ 
 #barre-de-recherche {
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
 }
-
+ 
 #liste-evenements {
     display: none;
     position: absolute;
@@ -102,29 +102,29 @@ h5{
     border: 1px solid #ccc;
     z-index: 1000;
 }
-
+ 
 #liste-evenements li a {
     display: block;
     padding: 12px;
     color: black;
     text-decoration: none;
 }
-
+ 
 #liste-evenements li a:hover {
     background-color: #eee;
 }
-
+ 
 .menu-container {
     position: relative;
     display: inline-block;
     margin-left: 15px;
 }
-
+ 
 #logo_menu {
     height: 40px;
     cursor: pointer;
 }
-
+ 
 #menu_deroulant {
     position: absolute;
     top: 50px;
@@ -137,26 +137,26 @@ h5{
     z-index: 1000;
     overflow: hidden;
 }
-
+ 
 #menu_deroulant a {
     display: block;
     padding: 12px;
     color: black;
     text-decoration: none;
 }
-
+ 
 #menu_deroulant a:hover {
     background-color: #eee4c8;
 }
-
+ 
 .menu-cache {
     display: none;
 }
-
+ 
 .menu-visible {
     display: block;
 }
-
+ 
 .login-container {
     display: flex;
     flex-direction: column;
@@ -164,7 +164,7 @@ h5{
     justify-content: center;
     height: 100px;
 }
-
+ 
 .register-container {
     display: flex;
     flex-direction: column;
@@ -172,62 +172,62 @@ h5{
     justify-content: center;
     height: 100px;
 }
-
-
-
+ 
+ 
+ 
 /* LOUIS*
-
+ 
 /* LOUIS*/
-
+ 
 /* LOUIS*/
-
+ 
 /* LOUIS*/
-
+ 
 /* LOUIS*/
-
+ 
 /* LOUIS*/
-
+ 
 /* LOUIS*/
-
+ 
 /* LOUIS*/
-
+ 
 /* LOUIS*/
-
+ 
 /* LOUIS*/
-
+ 
 /* LOUIS*/
-
+ 
 /* LOUIS*/
-
+ 
 /* LOUIS*/
-
+ 
 /* LOUIS*/
-
+ 
 /* LOUIS*/
-
+ 
 /* LOUIS*/
-
+ 
 /* LOUIS*/
-
+ 
 /* LOUIS*/
-
+ 
 /* LOUIS*/
-
+ 
 /* LOUIS*/
-
+ 
 /* LOUIS*/
-
+ 
 /* LOUIS*/
-
+ 
 /* LOUIS*/
-
-
-
-
+ 
+ 
+ 
+ 
 /* ============================= */
 /* FORMULAIRES GÉNÉRAUX          */
 /* ============================= */
-
+ 
 .container {
     border: 1px solid #2a2a2a;
     border-radius: 20px;
@@ -236,13 +236,13 @@ h5{
     width: 600px;
     max-width: calc(100% - 40px);
     background-color: white;
-
+ 
     display: flex;
     flex-direction: column;
     align-items: stretch;
     gap: 15px;
 }
-
+ 
 input,
 textarea,
 select {
@@ -251,106 +251,183 @@ select {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-
-/* ============================= */
-/* TITRE DE LA PAGE PAIEMENT     */
-/* ============================= */
-
+ 
+ 
+/* CSS PAGE ADMIN_VIEW LOUIS */
+/* CSS PAGE ADMIN_VIEW LOUIS */
+/* CSS PAGE ADMIN_VIEW LOUIS */
+/* CSS PAGE ADMIN_VIEW LOUIS */
+/* CSS PAGE ADMIN_VIEW LOUIS */
+/* CSS PAGE ADMIN_VIEW LOUIS */
+/* CSS PAGE ADMIN_VIEW LOUIS */
+/* CSS PAGE ADMIN_VIEW LOUIS */
+ 
+/*
+   La page admin_view.php réutilise les classes de paiement.php :
+   .page_paiement, .page-paiement-contenu, .container_paiement,
+   .recapitulatif, .champ, .form-group, .form-row et #submit.
+   Ci-dessous : uniquement ce qui manque pour les select, textarea,
+   input file et le symbole € des prix.
+*/
+ 
+/* Select et zone de texte : même rendu que les input dans .form-group */
+ 
+.form-group select,
+.form-group textarea {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+    border: none;
+    outline: none;
+    background: transparent;
+    font: inherit;
+}
+ 
+.form-group select {
+    cursor: pointer;
+}
+ 
+.form-group textarea {
+    resize: vertical;
+}
+ 
+/* Champ image */
+ 
+.form-group input[type="file"] {
+    cursor: pointer;
+}
+ 
+/* Symbole € à droite des champs de prix */
+ 
+.devise {
+    padding-right: 15px;
+    font-weight: bold;
+    color: #666;
+    flex-shrink: 0;
+}
+ 
+/* Les champs de la boîte "Prix des places" sont espacés comme dans le récapitulatif */
+ 
+.recapitulatif .champ {
+    margin: 0;
+}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+/* CSS PAGE PAIEMENT LOUIS */
+/* CSS PAGE PAIEMENT LOUIS */
+/* CSS PAGE PAIEMENT LOUIS */
+/* CSS PAGE PAIEMENT LOUIS */
+/* CSS PAGE PAIEMENT LOUIS */
+/* CSS PAGE PAIEMENT LOUIS */
+/* CSS PAGE PAIEMENT LOUIS */
+/* CSS PAGE PAIEMENT LOUIS */
+/* CSS PAGE PAIEMENT LOUIS */
+/* CSS PAGE PAIEMENT LOUIS */
+/* CSS PAGE PAIEMENT LOUIS */
+ 
 .page_paiement {
     width: 90%;
     max-width: 1200px;
     margin: 30px auto 20px;
 }
-
+ 
 .page_paiement h1 {
     margin-bottom: 8px;
 }
-
+ 
 .page_paiement p {
     margin-top: 0;
     color: #555;
 }
-
-/* ============================= */
+ 
+ 
 /* DISPOSITION DES DEUX BOÎTES   */
-/* ============================= */
-
+ 
+ 
 .page-paiement-contenu {
     display: grid;
-
-    /* Formulaire plus large que le récapitulatif */
+ 
+    
     grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
-
+ 
     gap: 25px;
     width: 90%;
     max-width: 1200px;
     margin: 30px auto 40px;
     align-items: start;
 }
-
-/* ============================= */
+ 
+ 
 /* BOÎTE INFORMATIONS PAIEMENT   */
-/* ============================= */
-
+ 
+ 
 .container_paiement {
     min-width: 0;
     width: 100%;
     margin: 0;
     padding: 25px;
-
+ 
     border: 1px solid #2a2a2a;
     border-radius: 20px;
     background-color: #fffdfd;
-
+ 
     display: flex;
     flex-direction: column;
     align-items: stretch;
     gap: 15px;
 }
-
+ 
 .container_paiement h2,
 .recapitulatif h2 {
     margin-top: 0;
     font-size: 22px;
 }
-
+ 
 /* Logos Visa et Mastercard */
-
+ 
 .cartes-bancaires {
     display: flex;
     align-items: center;
     gap: 12px;
     margin-bottom: 10px;
 }
-
+ 
 .cartes-bancaires img {
     width: auto;
     max-width: 65px;
     height: 35px;
     object-fit: contain;
 }
-
+ 
 /* Formulaire de paiement */
-
+ 
 .container_paiement form {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
-
+ 
 .champ {
     min-width: 0;
 }
-
+ 
 .champ label {
     display: block;
     margin-bottom: 7px;
     font-size: 14px;
     font-weight: 600;
 }
-
+ 
 /* Champs et icônes */
-
+ 
 .form-group {
     display: flex;
     align-items: center;
@@ -360,11 +437,11 @@ select {
     border-radius: 7px;
     background-color: white;
 }
-
+ 
 .form-group:focus-within {
     border-color: #9B7B36;
 }
-
+ 
 .form-group input {
     flex: 1;
     width: 100%;
@@ -375,7 +452,7 @@ select {
     background: transparent;
     font: inherit;
 }
-
+ 
 .icone-champ {
     width: 60px;
     height: 50px;
@@ -383,37 +460,37 @@ select {
     margin: 0 10px;
     flex-shrink: 0;
 }
-
+ 
 /* Expiration et CVV */
-
+ 
 .form-row {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 15px;
 }
-
+ 
 /* Conditions générales */
-
+ 
 .confirmation {
     display: flex;
     align-items: flex-start;
     gap: 10px;
     margin: 5px 0;
 }
-
+ 
 .confirmation input {
     width: auto;
     margin-top: 4px;
     flex-shrink: 0;
 }
-
+ 
 .confirmation label {
     font-size: 13px;
     line-height: 1.5;
 }
-
+ 
 /* Bouton payer */
-
+ 
 #submit {
     width: 100%;
     padding: 15px;
@@ -427,49 +504,49 @@ select {
     cursor: pointer;
     transition: background-color 0.2s;
 }
-
+ 
 #submit:hover {
     background-color: #9B7B36;
 }
-
+ 
 /* ============================= */
 /* BOÎTE RÉCAPITULATIF            */
 /* ============================= */
-
+ 
 .recapitulatif {
     min-width: 0;
     width: 100%;
     margin: 0;
     padding: 25px;
-
+ 
     border: 1px solid #2a2a2a;
     border-radius: 20px;
     background-color: #fffdfd;
-
+ 
     display: flex;
     flex-direction: column;
     align-items: stretch;
     gap: 15px;
 }
-
+ 
 .recapitulatif h2 {
     margin-bottom: 10px;
 }
-
+ 
 .recapitulatif h3 {
     margin-top: 0;
 }
-
+ 
 .recap p {
     line-height: 1.5;
 }
-
+ 
 .recap hr {
     border: none;
     border-top: 1px solid #ddd;
     margin: 20px 0;
 }
-
+ 
 .ligne-prix,
 .prix-total {
     display: flex;
@@ -478,110 +555,110 @@ select {
     gap: 12px;
     margin: 15px 0;
 }
-
+ 
 .ligne-prix span:last-child,
 .prix-total strong:last-child {
     white-space: nowrap;
 }
-
+ 
 .prix-total {
     padding: 15px;
     border-radius: 7px;
     background-color: #FCF6E3;
     color: #17191c;
 }
-
+ 
 .paiement-securise {
     margin-top: 15px;
     padding-top: 15px;
     border-top: 1px solid #ddd;
 }
-
+ 
 .paiement-securise p {
     font-weight: bold;
 }
-
+ 
 .paiement-securise small {
     color: #666;
     line-height: 1.5;
 }
-
+ 
 /* ============================= */
 /* TABLETTES ET PETITS ÉCRANS    */
 /* ============================= */
-
+ 
 @media (max-width: 800px) {
-
+ 
     .page-paiement-contenu {
         grid-template-columns: minmax(0, 1fr);
         width: 95%;
         gap: 20px;
     }
-
+ 
     .page_paiement {
         width: 95%;
     }
 }
-
+ 
 /* ============================= */
 /* TÉLÉPHONES                    */
 /* ============================= */
-
+ 
 @media (max-width: 480px) {
-
+ 
     .page-paiement-contenu {
         width: 100%;
         padding: 0 12px;
         gap: 15px;
     }
-
+ 
     .page_paiement {
         width: 100%;
         padding: 0 12px;
     }
-
+ 
     .container_paiement,
     .recapitulatif {
         padding: 18px;
     }
-
+ 
     .form-row {
         grid-template-columns: minmax(0, 1fr);
     }
-
+ 
     #bandeau_onglets {
         height: auto;
         border-radius: 12px;
         gap: 8px;
     }
-
+ 
     #bandeau_onglets > * + * {
         padding-left: 8px;
     }
 }
-
-
+ 
+ 
 .nouveaute {
     text-align: center;
 }
-
+ 
 .nouveaute-lien {
     color: black;
     text-decoration: none;
 }
-
+ 
 .nouveaute-infos {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 5px;
 }
-
+ 
 .Creer{
     display: flex;
     justify-content: center;
 }
-
+ 
 .delete-edit {
     display:flex;
     justify-content: center;
@@ -589,7 +666,7 @@ select {
 .nouveaute-infos h3, .nouveaute-infos p {
     margin: 0;
 }
-
+ 
 .titre {
   display: flex;
   align-items: center;
@@ -597,18 +674,18 @@ select {
   width: 100%;
   position: relative;     
 }
-
+ 
 .titre h1 {
   margin: 0 auto; 
 }
-
+ 
 #lien-connexion {
   position: absolute;
   right: 20px;
   border: 3px solid #2a2a2a;
   border-radius: 10px;
 }
-
+ 
 #lien-connexion a{
     color: black;
     text-decoration: none;
@@ -617,28 +694,28 @@ select {
     color: black;
     text-decoration: none;
 }
-
+ 
 .nouveaute h2 {
     position: relative;
     width: 150px;
     margin: 50px;
 }
-
+ 
 .nouveaute p {
     position: relative;
     width: 200px;
     margin: 20px;
 }
-
+ 
 #connection {
     text-align: right;
 }
-
+ 
 #en_tete #connection {
     text-align: right;
     margin-right: 20px;
 }
-
+ 
 #bandeau_onglets{
     border: 1px solid #2a2a2a;
     border-radius: 20px;
@@ -653,32 +730,32 @@ select {
     gap: 10px;
     text-align: right;
 }
-
+ 
 #bandeau_onglets > * + * {
     border-left: 1px solid black;
     padding-left: 5px;
 }
-
-
+ 
+ 
 .rechercher {
     position: relative;
     width: 350px;
     margin: 20px auto;
 }
-
+ 
 .gradur {
     display:block;
     margin: 20px auto 0;
     width: 500px;
     max-width: 100%;
 }
-
+ 
 #barre-de-recherche {
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
 }
-
+ 
 #liste-evenements {
     display: none;
     position: absolute;
@@ -693,14 +770,14 @@ select {
     box-sizing: border-box;
     z-index: 1000;
 }
-
+ 
 #liste-evenements li a {
     display: block;
     padding: 12px;
     color: black;
     text-decoration: none;
 }
-
+ 
 #liste-evenements li a:hover {
     background-color: #eee;
 }
