@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require __DIR__ . '/../config/config.php';
 
 // Connexion à la base de données MySQL
