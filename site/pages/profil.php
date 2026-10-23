@@ -48,7 +48,13 @@ foreach ($result as $value) {
         <?php endif; ?>
     </div>
 </div>
-    <div><h4 id="connection"><a href="connexion.php">Se connecter</a></h4></div>
+    <div><h4 id="connection">
+        <?php if (!isset($_SESSION['user'])):?>
+            <a href="connexion.php">Se connecter</a>
+        <?php else: ?>
+            <a href="../php/deconnexion.php">Se déconnecter</a>
+        <?php endif; ?>
+    </h4></div>
 </header>
 <header id="titre_site"><h1>Whitelist</h1></header>
 <header id="bandeau_onglets">

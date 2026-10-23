@@ -52,8 +52,7 @@ foreach ($result as $value) {
         <?php if (!isset($_SESSION['user'])):?>
             <a href="connexion.php">Se connecter</a>
         <?php else: ?>
-            <?php session_destroy(); ?>
-            <a href="index.php">Se déconnecter</a>
+            <a href="../php/deconnexion.php">Se déconnecter</a>
         <?php endif; ?>
     </h4></div>
 </header>
