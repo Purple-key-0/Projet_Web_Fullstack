@@ -1,9 +1,6 @@
 <?php
 
-$host = "sql7.freesqldatabase.com";
-$dbName = "sql7839244";
-$user = "sql7839244";
-$pass = "k4ySRIVWAK";
+require __DIR__ . '/../config/config.php';
 
 // Connexion à la base de données MySQL
 $dbh = new PDO("mysql:host=$host;dbname=$dbName", $user, $pass);
@@ -32,7 +29,7 @@ foreach ($result as $value) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Whitelist :)</title>
     <link rel="stylesheet" href="../css/styles.css">
-    <script src="../js/index.js"></script>
+    <script src="../js/menu.js"></script>
 </head>
 <header id="en_tete">
     <div class="menu-container">
@@ -46,7 +43,9 @@ foreach ($result as $value) {
         <a href="profil.php">Mon Compte</a>
         <a href="evenements.php">Événements</a>
         <a href="reservations.php">Mes Réservations</a>
-        <a href="admin_view.php">Gestion d'Événements</a>
+        <?php if (isset($_SESSION['user']['roles']) && $_SESSION['user']['roles'] === '["ROLE_ADMIN"]' ):?>
+            <a href="admin_view.php">Gestion d'Événements</a>
+        <?php endif; ?>
     </div>
 </div>
     <div><h4 id="connection"><a href="connexion.php">Se connecter</a></h4></div>
@@ -56,7 +55,11 @@ foreach ($result as $value) {
     <h5 id="h5_1"><a href="index.php">Accueil</a></h5>
     <h5><a href="evenements.php">Événements</a></h5>
     <h5><a href="reservations.php">Mes Réservations</a></h5>
-    <h5><a href="admin_view.php">Gestion d'Événements</a></h5>
+    <h5>
+        <?php if (isset($_SESSION['user']['roles']) && $_SESSION['user']['roles'] === '["ROLE_ADMIN"]' ):?>
+            <a href="admin_view.php">Gestion d'Événements</a>
+        <?php endif; ?>
+    </h5>
 </header>
 <body>
 </body>

@@ -1,9 +1,6 @@
 <?php
 
-$host = "sql7.freesqldatabase.com";
-$dbName = "sql7839244";
-$user = "sql7839244";
-$pass = "k4ySRIVWAK";
+require __DIR__ . '/../config/config.php';
 
 // Connexion à la base de données MySQL
 $dbh = new PDO("mysql:host=$host;dbname=$dbName", $user, $pass);
@@ -42,43 +39,76 @@ foreach ($result as $value) {
 
     <div id="menu_deroulant" class="menu-cache">
         <a href="index.php">Accueil</a>
+        <a href="profil.php">Mon Compte</a>
         <a href="evenements.php">Événements</a>
         <a href="reservations.php">Mes Réservations</a>
-        <a href="admin_view.php">Gestion d'Événements</a>
+        <?php if (isset($_SESSION['user']['roles']) && $_SESSION['user']['roles'] === '["ROLE_ADMIN"]' ):?>
+            <a href="admin_view.php">Gestion d'Événements</a>
+        <?php endif; ?>
     </div>
-</div>
-    <div><h4 id="connection"><a href="connexion.php">Se connecter</a></h4></div>
+    </div>
+    <div><h4 id="connection">
+        <?php if (!isset($_SESSION['user'])):?>
+            <a href="connexion.php">Se connecter</a>
+        <?php else: ?>
+            <?php session_destroy(); ?>
+            <a href="index.php">Se déconnecter</a>
+        <?php endif; ?>
+    </h4></div>
 </header>
 <header id="titre_site"><h1>Événements</h1></header>
 <header id="bandeau_onglets">
     <h5 id="h5_1"><a href="index.php">Accueil</a></h5>
     <h5><a href="evenements.php">Événements</a></h5>
     <h5><a href="reservations.php">Mes Réservations</a></h5>
-    <h5><a href="admin_view.php">Gestion d'Événements</a></h5>
+    <h5>
+        <?php if (isset($_SESSION['user']['roles']) && $_SESSION['user']['roles'] === '["ROLE_ADMIN"]' ):?>
+            <a href="admin_view.php">Gestion d'Événements</a>
+        <?php endif; ?>
+    </h5>
 </header>
 <body>
-    <header class="eve">
-        <h5> <a href="filtrer.php">Filtrer</a> </h5>
-        <h5> <a href="connexion.php">Se connecter</a> </h5>
-    </header>
-    <header class="Creer">
-        <h3>
-            <button type="button"> Créer un événement</button>
-        </h3>
-    </header>
+    
     <div class="rechercher">
-        <input type="search" id ="barre-de-recherche" placeholder="Rechercher un événement">
+    <input
+        type="search"
+        id="barre-de-recherche"
+        placeholder="Rechercher un événement"
+        autocomplete="off"
+    >
 
-        <ul id="liste-evenements">
-            <li><a href="seance.php" data-mots-cles="gradur décennie rap concert">Décennie - Gradur</a></li>
-        </ul>
-    </div>
+    <ul id="liste-evenements">
+        <li>
+            <a href="seance.html" data-mots-cles="Musique Concert Rap français Hip-hop Rap Musique urbaine Événement musical Live / spectacle musical Culture Sortie / événement">
+                Décennie - Gradur
+            </a>
+        </li>
+
+        <li>
+            <a href="festival.html" data-mots-cles="festival musique été">
+                Festival de musique
+            </a>
+        </li>
+    </ul>
+</div>
     <header class="nouveaute">
         <h2>Nouveauté !</h2>
-        <p>Vendredi 26 Novembre 2026</p>
-        <h3> <a href="seance.php">Concert Décennie - Gradur : Bordeaux</a> </h3>
+
+        <div class="nouveaute-infos">
+            <p><i>Vendredi 26 Novembre 2026  :</i></p>
+            <h3> <a href="seance.html" class="nouveaute-lien">Concert Décennie - Gradur : Bordeaux</a> </h3>
+        </div>
+        <div class="gradur">
+            <img src="../assets/img/Decennie.jpg" alt="Gradur" class="nouveaute-image">
+        </div>
     </header>
-    <script src="evenements.js"></script>
+    <header class="delete-edit">
+        <h3>
+            <button type="button"> Modifier l'événement</button>
+            <button type="button"> Supprimer l'événement</button>
+        </h3>
+    </header>
+    <script src="../js/evenements.js"></script>
 
 </body>
 </html>

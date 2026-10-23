@@ -1,9 +1,6 @@
 <?php
 
-$host = "sql7.freesqldatabase.com";
-$dbName = "sql7839244";
-$user = "sql7839244";
-$pass = "k4ySRIVWAK";
+require __DIR__ . '/../config/config.php';
 
 // Connexion à la base de données MySQL
 $dbh = new PDO("mysql:host=$host;dbname=$dbName", $user, $pass);
@@ -33,36 +30,59 @@ foreach ($result as $value) {
     <title>Paiement - Whitelist</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
+<header id="en_tete">
+    <div class="menu-container">
+    <img src="../assets/img/logo_menu.svg"
+         id="logo_menu"
+         alt="Ouvrir le menu"
+         onclick="toggleMenu()">
+
+    <div id="menu_deroulant" class="menu-cache">
+        <a href="index.php">Accueil</a>
+        <a href="profil.php">Mon Compte</a>
+        <a href="evenements.php">Événements</a>
+        <a href="reservations.php">Mes Réservations</a>
+        <?php if (isset($_SESSION['user']['roles']) && $_SESSION['user']['roles'] === '["ROLE_ADMIN"]' ):?>
+            <a href="admin_view.php">Gestion d'Événements</a>
+        <?php endif; ?>
+    </div>
+    </div>
+    <div><h4 id="connection">
+        <?php if (!isset($_SESSION['user'])):?>
+            <a href="connexion.php">Se connecter</a>
+        <?php else: ?>
+            <?php session_destroy(); ?>
+            <a href="index.php">Se déconnecter</a>
+        <?php endif; ?>
+    </h4></div>
+</header>
+<header id="en_tete">
+    <div class="menu-container">
+    <img src="../assets/img/logo_menu.svg"
+         id="logo_menu"
+         alt="Ouvrir le menu"
+         onclick="toggleMenu()">
+
+    <div id="menu_deroulant" class="menu-cache">
+        <a href="index.php">Accueil</a>
+        <a href="profil.php">Mon Compte</a>
+        <a href="evenements.php">Événements</a>
+        <a href="reservations.php">Mes Réservations</a>
+        <?php if (isset($_SESSION['user']['roles']) && $_SESSION['user']['roles'] === '["ROLE_ADMIN"]' ):?>
+            <a href="admin_view.php">Gestion d'Événements</a>
+        <?php endif; ?>
+    </div>
+    </div>
+    <div><h4 id="connection">
+        <?php if (!isset($_SESSION['user'])):?>
+            <a href="connexion.php">Se connecter</a>
+        <?php else: ?>
+            <?php session_destroy(); ?>
+            <a href="index.php">Se déconnecter</a>
+        <?php endif; ?>
+    </h4></div>
+</header>
 <body>
-
-    <!-- En-tête -->
-    <header id="en_tete">
-        <div class="menu-container">
-            <img
-                src="../assets/img/logo_menu.svg"
-                id="logo_menu"
-                alt="Menu"
-            >
-        </div>
-
-        <div>
-            <h4 id="connection">Se connecter</h4>
-        </div>
-    </header>
-
-    <!-- Titre du site -->
-    <header id="titre_site">
-        <h1>Whitelist</h1>
-    </header>
-
-    <!-- Navigation -->
-    <nav id="bandeau_onglets">
-        <h5><a href="index.php">Accueil</a></h5>
-        <h5><a href="evenements.php">Événements</a></h5>
-        <h5><a href="reservations.php">Mes Réservations</a></h5>
-        <h5><a href="admin_view.php">Gestion d'Événements</a></h5>
-    </nav>
-
     <!-- Titre de la page -->
     <header class="page_paiement">
         <h1>Paiement</h1>

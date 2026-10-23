@@ -1,9 +1,7 @@
 <?php
+session_start();
 
-$host = "sql7.freesqldatabase.com";
-$dbName = "sql7839244";
-$user = "sql7839244";
-$pass = "k4ySRIVWAK";
+require __DIR__ . '/../config/config.php';
 
 // Connexion à la base de données MySQL
 $dbh = new PDO("mysql:host=$host;dbname=$dbName", $user, $pass);
@@ -45,7 +43,11 @@ foreach ($result as $value) {
         <a href="index.php">Accueil</a>
         <a href="evenements.php">Événements</a>
         <a href="reservations.php">Mes Réservations</a>
-        <a href="admin_view.php">Gestion d'Événements</a>
+        <h5>
+            <?php if (isset($_SESSION['user']['roles']) && $_SESSION['user']['roles'] === '["ROLE_ADMIN"]' ):?>
+                <a href="admin_view.php">Gestion d'Événements</a>
+            <?php endif; ?>
+        </h5>
     </div>
 </div>
     <div><h4 id="connection"><a href="connexion.php">Se connecter</a></h4></div>
@@ -55,17 +57,27 @@ foreach ($result as $value) {
     <h5 id="h5_1"><a href="index.php">Accueil</a></h5>
     <h5><a href="evenements.php">Événements</a></h5>
     <h5><a href="reservations.php">Mes Réservations</a></h5>
-    <h5><a href="admin_view.php">Gestion d'Événements</a></h5>
+    <h5>
+        <?php if (isset($_SESSION['user']['roles']) && $_SESSION['user']['roles'] === '["ROLE_ADMIN"]' ):?>
+            <a href="admin_view.php">Gestion d'Événements</a>
+        <?php endif; ?>
+    </h5>
 </header>
 <body>
-    <div class="login-container">
-        <input type="text" placeholder="Nom d'utilisateur">
-        <input type="password" placeholder="Mot de passe">
-        <button>Se connecter</button>
-    </div>
-    <div class="register-container">
+    <form action="../php/traitement_connexion.php" method="post">
+        <div>
+            <label for="email">Votre e-mail</label>
+            <input type="email" name="email" id="email">
+        </div>
+        <div>
+            <label for="password">Votre mot de passe</label>
+            <input type="password" name="password" id="password">
+        </div>
+        <input type="submit" value="Se connecter">
+        <div class="register-container">
         <p>Pas encore de compte ?</p>
-        <button>S'inscrire</button>
+        <a href="inscription.php">S'inscrire</a>
     </div>
+    </form>
 </body>
 </html>
