@@ -6,18 +6,21 @@ require __DIR__ . '/../config/config.php';
 $dbh = new PDO("mysql:host=$host;dbname=$dbName", $user, $pass);
 
 // Définition de la requête MySQL
-$query  = "SELECT last_name, first_name FROM user";
+$query  = "SELECT artiste_event, nom_event, lieu_event, description_event, type_event, date_event, heure_event FROM events";
 
-// Envoi de la requête à la base de données et récupération des résultats de la requête
 $stt = $dbh->query($query);
 $result = $stt->fetchAll();
 
 $htmlTable = "";
 foreach ($result as $value) {
     $htmlTable .= "<tr>";
-    $htmlTable .= "<td>{$value['last_name']}</td>";
-    $htmlTable .= "<td>{$value['first_name']}</td>";
-    $htmlTable .= "</tr>";
+    $htmlTable .= "<td>{$value['artiste_event']}</td>";
+    $htmlTable .= "<td>{$value['nom_event']}</td>";
+    $htmlTable .= "<td>{$value['lieu_event']}</td>";
+    $htmlTable .= "<td>{$value['description_event']}</td>";
+    $htmlTable .= "<td>{$value['type_event']}</td>";
+    $htmlTable .= "<td>{$value['date_event']}</td>";
+    $htmlTable .= "<td>{$value['heure_event']}</td>";
 }
 
 ?>

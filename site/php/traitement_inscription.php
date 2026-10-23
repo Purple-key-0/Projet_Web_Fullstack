@@ -6,10 +6,7 @@ $firstName = $_POST['first_name'];
 $lastName = $_POST['last_name'];
 $birthDate = $_POST['birth_date'];
 
-$host = "sql7.freesqldatabase.com";
-$dbName = "sql7839244";
-$user = "sql7839244";
-$pass = "k4ySRIVWAK";
+require __DIR__ . '/../config/config.php';
 
 // Connexion à la base de données MySQL
 $dbh = new PDO("mysql:host=$host;dbname=$dbName", $user, $pass);
