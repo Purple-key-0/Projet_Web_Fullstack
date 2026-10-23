@@ -31,6 +31,7 @@ foreach ($result as $value) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Whitelist - admin_view</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/menu.js"></script>
 </head>
 <body>
     <header id="en_tete">
@@ -49,7 +50,7 @@ foreach ($result as $value) {
             <a href="admin_view.php">Gestion d'Événements</a>
         <?php endif; ?>
     </div>
-    </div>
+</div>
     <div><h4 id="connection">
         <?php if (!isset($_SESSION['user'])):?>
             <a href="connexion.php">Se connecter</a>
@@ -59,17 +60,17 @@ foreach ($result as $value) {
         <?php endif; ?>
     </h4></div>
 </header>
-    <header id="titre_site"><h1>Whitelist</h1></header>
-    <header id="bandeau_onglets">
-        <h5 id="h5_1"><a href="index.php">Accueil</a></h5>
-        <h5><a href="evenements.php">Événements</a></h5>
-        <h5><a href="reservations.php">Mes Réservations</a></h5>
-        <h5>
-            <?php if (isset($_SESSION['user']['roles']) && $_SESSION['user']['roles'] === '["ROLE_ADMIN"]' ):?>
-                <a href="admin_view.php">Gestion d'Événements</a>
-            <?php endif; ?>
-        </h5>
-    </header>
+<header id="titre_site"><h1>Whitelist</h1></header>
+<header id="bandeau_onglets">
+    <h5 id="h5_1"><a href="index.php">Accueil</a></h5>
+    <h5><a href="evenements.php">Événements</a></h5>
+    <h5><a href="reservations.php">Mes Réservations</a></h5>
+    <h5>
+        <?php if (isset($_SESSION['user']['roles']) && $_SESSION['user']['roles'] === '["ROLE_ADMIN"]' ):?>
+            <a href="admin_view.php">Gestion d'Événements</a>
+        <?php endif; ?>
+    </h5>
+</header>
 
     <main class="container">
         <h1>Créer un événement</h1>

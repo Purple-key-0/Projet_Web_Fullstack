@@ -47,7 +47,7 @@ foreach ($result as $value) {
             <a href="admin_view.php">Gestion d'Événements</a>
         <?php endif; ?>
     </div>
-    </div>
+</div>
     <div><h4 id="connection">
         <?php if (!isset($_SESSION['user'])):?>
             <a href="connexion.php">Se connecter</a>
@@ -68,7 +68,6 @@ foreach ($result as $value) {
         <?php endif; ?>
     </h5>
 </header>
-
 <body>
     <form action="../php/traitement_inscription.php" method="post">
         <div>

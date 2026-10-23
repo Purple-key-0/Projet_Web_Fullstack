@@ -28,7 +28,7 @@ foreach ($result as $value) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Événements</title>
     <link rel="stylesheet" href="../css/styles.css">
-    <script src="../js/index.js"></script>
+    <script src="../js/menu.js"></script>
 </head>
 <header id="en_tete">
     <div class="menu-container">
@@ -46,7 +46,7 @@ foreach ($result as $value) {
             <a href="admin_view.php">Gestion d'Événements</a>
         <?php endif; ?>
     </div>
-    </div>
+</div>
     <div><h4 id="connection">
         <?php if (!isset($_SESSION['user'])):?>
             <a href="connexion.php">Se connecter</a>
@@ -56,7 +56,7 @@ foreach ($result as $value) {
         <?php endif; ?>
     </h4></div>
 </header>
-<header id="titre_site"><h1>Événements</h1></header>
+<header id="titre_site"><h1>Whitelist</h1></header>
 <header id="bandeau_onglets">
     <h5 id="h5_1"><a href="index.php">Accueil</a></h5>
     <h5><a href="evenements.php">Événements</a></h5>
