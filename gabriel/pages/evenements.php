@@ -59,7 +59,7 @@ foreach ($result as $value) {
 <body>
     <header class="eve">
         <h5> <a href="filtrer.php">Filtrer</a> </h5>
-        <h5> <a href="connexion.php">Se connecter</a> </h5>
+        <h5><h4 id="connection"><a href="connexion.php">Se connecter</a></h4></h5>
     </header>
     <header class="Creer">
         <h3>

@@ -59,7 +59,7 @@ foreach ($result as $value) {
 </header>
 
 <body>
-    <form action="../php/traitement_inscription.php">
+    <form action="../php/traitement_inscription.php" method="post">
         <div>
             <label for="email">Votre e-mail</label>
             <input type="email" name="email" id="email">

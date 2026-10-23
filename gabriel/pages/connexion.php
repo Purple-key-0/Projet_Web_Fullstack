@@ -58,7 +58,7 @@ foreach ($result as $value) {
     <h5><a href="admin_view.php">Gestion d'Événements</a></h5>
 </header>
 <body>
-    <form action="../php/traitement_connexion.php">
+    <form action="../php/traitement_connexion.php" method="post">
         <div>
             <label for="email">Votre e-mail</label>
             <input type="email" name="email" id="email">

@@ -46,7 +46,7 @@ foreach ($result as $value) {
         </div>
 
         <div>
-            <h4 id="connection">Se connecter</h4>
+            <h4 id="connection"><a href="connexion.php">Se connecter</a></h4>
         </div>
     </header>
 

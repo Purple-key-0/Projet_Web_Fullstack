@@ -35,7 +35,7 @@ foreach ($result as $value) {
 <body>
     <header id="en_tete">
         <img src="../assets/img/logo_menu.svg" id="logo_menu">
-        <div><h4 id="connection">Se connecter</h4></div>
+        <div><h4 id="connection"><a href="connexion.php">Se connecter</a></h4></div>
     </header>
     <header id="titre_site"><h1>Whitelist</h1></header>
     <header id="bandeau_onglets">
