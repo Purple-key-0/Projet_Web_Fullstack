@@ -1,10 +1,10 @@
 <?php
 
-$email = $_GET['email'];
-$password = password_hash($_GET['password'], PASSWORD_DEFAULT);
-$firstName = $_GET['first_name'];
-$lastName = $_GET['last_name'];
-$birthDate = $_GET['birth_date'];
+$email = $_POST['email'];
+$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+$firstName = $_POST['first_name'];
+$lastName = $_POST['last_name'];
+$birthDate = $_POST['birth_date'];
 
 $host = "sql7.freesqldatabase.com";
 $dbName = "sql7839244";

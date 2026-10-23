@@ -1,7 +1,7 @@
 <?php
 
-$email = $_GET['email'];
-$password = $_GET['password'];
+$email = $_POST['email'];
+$password = $_POST['password'];
 
 $host = "sql7.freesqldatabase.com";
 $dbName = "sql7839244";
