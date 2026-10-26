@@ -15,8 +15,6 @@ $type_event = $_POST['categorie'] ?? '';
 $date_event = $_POST['date'] ?? '';
 $heure_event = $_POST['time'] ?? '';
 
-// Vérifier que le champ n'est pas vide
-
 
 // Connexion à la base de données
 $host = "sql7.freesqldatabase.com";
