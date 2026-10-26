@@ -20,43 +20,53 @@ foreach ($result as $value) {
     $htmlTable .= "</tr>";
 }
 
+require __DIR__ . '/../config/auth.php';
+require __DIR__ . '/../config/db.php';
+exigerConnexion();
+
+$stmt = $dbh->prepare('SELECT first_name, last_name, email, birth_date FROM user WHERE id = ?');
+$stmt->execute([$_SESSION['user']['id']]);
+$u = $stmt->fetch();
+
+$titrePage = 'Mon profil';
+
 ?>
 <?php require __DIR__ . '/entete.php'; ?>
 <body>
-<?php require __DIR__ . '/menu.php'; ?>
 
 <main>
     <h2>Bonjour <?= htmlspecialchars($u['first_name'] . ' ' . $u['last_name']) ?></h2>
 
-    <section>
-        <h3>Mes informations</h3>
+    <h3>Mes informations</h3>
+
+    <div class="ligne-info">
         <p><strong>Adresse e-mail :</strong> <span id="email-actuel"><?= htmlspecialchars($u['email']) ?></span></p>
+        <button type="button" onclick="afficherFormulaire('form-email')">Modifier l'e-mail</button>
+    </div>
+    <form id="form-email" class="form-profil form-cache">
+        <input type="email" name="email" placeholder="Nouvelle adresse e-mail" required>
+        <input type="password" name="mdp" placeholder="Mot de passe actuel (confirmation)" required>
+        <button type="submit">Valider</button>
+        <div class="message"></div>
+    </form>
+
+    <div class="ligne-info">
         <p><strong>Mot de passe :</strong> ••••••••</p>
-    </section>
-
-    <section>
-        <h3>Modifier mon adresse e-mail</h3>
-        <form id="form-email" class="form-profil">
-            <input type="email" name="email" placeholder="Nouvelle adresse e-mail" required>
-            <input type="password" name="mdp" placeholder="Mot de passe actuel (confirmation)" required>
-            <button type="submit">Modifier l'e-mail</button>
-            <div class="message"></div>
-        </form>
-    </section>
-
-    <section>
-        <h3>Modifier mon mot de passe</h3>
-        <form id="form-mdp" class="form-profil">
-            <input type="password" name="ancien" placeholder="Ancien mot de passe" required>
-            <input type="password" name="nouveau" placeholder="Nouveau mot de passe (8 caractères min.)" minlength="8" required>
-            <input type="password" name="confirmation" placeholder="Confirmer le nouveau mot de passe" required>
-            <button type="submit">Modifier le mot de passe</button>
-            <div class="message"></div>
-        </form>
-    </section>
+        <button type="button" onclick="afficherFormulaire('form-mdp')">Modifier le mot de passe</button>
+    </div>
+    <form id="form-mdp" class="form-profil form-cache">
+        <input type="password" name="ancien" placeholder="Ancien mot de passe" required>
+        <input type="password" name="nouveau" placeholder="Nouveau mot de passe (8 caractères min.)" minlength="8" required>
+        <input type="password" name="confirmation" placeholder="Confirmer le nouveau mot de passe" required>
+        <button type="submit">Valider</button>
+        <div class="message"></div>
+    </form>
 </main>
 
 <script>
+    function afficherFormulaire(id) {
+    document.getElementById(id).classList.toggle('form-cache');
+}
 function brancherFormulaire(idForm, urlPhp, apresSucces) {
     const form = document.getElementById(idForm);
     const message = form.querySelector('.message');
