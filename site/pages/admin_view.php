@@ -35,7 +35,7 @@ $query  = "SELECT artiste_event FROM events";
             <div class="champ">
                 <label for="categorie">Type d'événement</label>
                 <div class="form-group">
-                    <select id="categorie" name="categorie" >
+                    <select id="categorie" name="categorie" required>
                         <option value="">Choisir une catégorie</option>
                         <option value="concert">Concert</option>
                         <option value="spectacle">Spectacle</option>
@@ -47,7 +47,7 @@ $query  = "SELECT artiste_event FROM events";
             <div class="champ">
                 <label for="artiste">Artiste de l'événement</label>
                 <div class="form-group">
-                    <input type="text" id="artiste" name="artiste" placeholder="Artiste de l'événement" >
+                    <input type="text" id="artiste" name="artiste" placeholder="Artiste de l'événement" required >
                 </div>
             </div>
 
@@ -55,7 +55,7 @@ $query  = "SELECT artiste_event FROM events";
             <div class="champ">
                 <label for="event">Nom de l'événement</label>
                 <div class="form-group">
-                    <input type="text" id="event" name="event" placeholder="Nom de l'événement" >
+                    <input type="text" id="event" name="event" placeholder="Nom de l'événement" required>
                 </div>
             </div>
 
@@ -64,14 +64,14 @@ $query  = "SELECT artiste_event FROM events";
                 <div class="champ">
                     <label for="date">Date de l'événement</label>
                     <div class="form-group">
-                        <input type="date" id="date" name="date" >
+                        <input type="date" id="date" name="date" required >
                     </div>
                 </div>
 
                 <div class="champ">
                     <label for="time">Heure de l'événement</label>
                     <div class="form-group">
-                        <input type="time" id="time" name="time" >
+                        <input type="time" id="time" name="time" required >
                     </div>
                 </div>
             </div>
@@ -80,7 +80,7 @@ $query  = "SELECT artiste_event FROM events";
             <div class="champ">
                 <label for="lieu">Lieu de l'événement</label>
                 <div class="form-group">
-                    <input type="text" id="lieu" name="lieu" placeholder="Lieu de l'événement" >
+                    <input type="text" id="lieu" name="lieu" placeholder="Lieu de l'événement" required>
                 </div>
             </div>
 
@@ -88,7 +88,7 @@ $query  = "SELECT artiste_event FROM events";
             <div class="champ">
                 <label for="description">Description de l'événement</label>
                 <div class="form-group">
-                    <textarea id="description" name="description" placeholder="Description de l'événement" rows="5"></textarea>
+                    <textarea id="description" name="description" placeholder="Description de l'événement" rows="5" required></textarea>
                 </div>
             </div>
 
