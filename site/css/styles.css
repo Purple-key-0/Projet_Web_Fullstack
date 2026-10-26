@@ -803,3 +803,58 @@ main { max-width: 520px; margin: 30px auto; padding: 0 15px; }
 .form-cache { display: none !important; }
 
 
+#evenement {
+    max-width: 700px;
+    margin: 24px auto;
+    padding: 24px;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+/* test*/
+
+.evenement {
+    max-width: 700px;
+    margin: 24px auto;
+    padding: 24px;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.evenement h2 {
+    margin: 0 0 16px;
+    color: #252525;
+    font-size: 1.5rem;
+}
+
+.evenement p {
+    margin: 8px 0;
+    color: #555;
+    line-height: 1.5;
+}
+
+.evenement a {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 10px 16px;
+    color: #fff;
+    background: #6c3bd1;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.evenement a:hover {
+    background: #5126ad;
+}
+
+@media (max-width: 600px) {
+    .evenement {
+        margin: 16px;
+        padding: 18px;
+    }
+}
