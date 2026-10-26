@@ -8,11 +8,6 @@ $pass = "k4ySRIVWAK";
 // Connexion à la base de données MySQL
 $dbh = new PDO("mysql:host=$host;dbname=$dbName", $user, $pass);
 
-// Définition de la requête MySQL
-$query  = "SELECT artiste_event FROM events";
-
-
-
 ?>
 
 <?php require __DIR__ . '/entete.php'; ?>
@@ -113,28 +108,28 @@ $query  = "SELECT artiste_event FROM events";
             <h2>Prix des places</h2>
 
             <div class="champ">
-                <label for="carre-or">Carré OR</label>
-                <div class="form-group">
-                    <input type="number" id="carre-or" name="prix_carre_or" min="0" step="0.1" placeholder="0.00">
-                    <span class="devise">€</span>
+                    <label for="carre-or">Carré OR</label>
+                    <div class="form-group">
+                        <label> Nombre de places: <input type="number" name="nbr_carre_or" min="0" placeholder="0"></label>
+                        <label> Prix unitaire: <input type="number" name="prix_carre_or" min="0" step="0.01" placeholder="0.00"></label>
+                    </div>
                 </div>
-            </div>
 
             <div class="champ">
-                <label for="gradins">Gradins</label>
-                <div class="form-group">
-                    <input type="number" id="gradins" name="prix_gradins" min="0" step="0.1" placeholder="0.00">
-                    <span class="devise">€</span>
+                    <label for="fosse">Fosse</label>
+                    <div class="form-group">
+                        <label> Nombre de places: <input type="number" name="nbr_fosse" min="0" placeholder="0"></label>
+                        <label> Prix unitaire: <input type="number" name="prix_fosse" min="0" step="0.01" placeholder="0.00"></label>
+                    </div>
                 </div>
-            </div>
 
             <div class="champ">
-                <label for="fosse">Fosse</label>
-                <div class="form-group">
-                    <input type="number" id="fosse" name="prix_fosse" min="0" step="0.1" placeholder="0.00">
-                    <span class="devise">€</span>
+                    <label for="gradins">Gradins</label>
+                    <div class="form-group">
+                        <label> Nombre de places: <input type="number" name="nbr_gradins" min="0" placeholder="0"></label>
+                        <label> Prix unitaire: <input type="number" name="prix_gradins" min="0" step="0.01" placeholder="0.00"></label>
+                    </div>
                 </div>
-            </div>
 
         </aside>
 
