@@ -1,10 +1,13 @@
+
 <?php
 
+// Vérifier que le formulaire a bien été envoyé
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit("Le formulaire n'a pas été envoyé.");
 }
 
-$artiste = $_POST['artiste'] ?? '';
+// Récupérer les données du formulaire
+$artiste_event = $_POST['artiste'] ?? '';
 $nom_event = $_POST['event'] ?? '';
 $lieu_event = $_POST['lieu'] ?? '';
 $description_event = $_POST['description'] ?? '';
@@ -12,14 +15,14 @@ $type_event = $_POST['categorie'] ?? '';
 $date_event = $_POST['date'] ?? '';
 $heure_event = $_POST['time'] ?? '';
 
-if (trim($artiste) === '') {
-    exit("Le nom de l'artiste est obligatoire.");
-}
+// Vérifier que le champ n'est pas vide
 
+
+// Connexion à la base de données
 $host = "sql7.freesqldatabase.com";
 $dbName = "sql7839244";
 $user = "sql7839244";
-$pass = "METS_ICI_TON_MOT_DE_PASSE";
+$pass = "k4ySRIVWAK";
 
 try {
     $dbh = new PDO(
@@ -32,13 +35,15 @@ try {
         ]
     );
 
+    // Préparer la requête SQL
     $insertQuery = "INSERT INTO events (artiste_event, nom_event, lieu_event, description_event, type_event, date_event, heure_event)
                     VALUES (:artiste, :nom_event, :lieu_event, :description_event, :type_event, :date_event, :heure_event)";
 
     $stmt = $dbh->prepare($insertQuery);
 
+    // Exécuter la requête avec la valeur du formulaire
     $stmt->execute([
-        'artiste' => $artiste,
+        'artiste' => $artiste_event,
         'nom_event' => $nom_event,
         'lieu_event' => $lieu_event,
         'description_event' => $description_event,
@@ -47,10 +52,9 @@ try {
         'heure_event' => $heure_event
     ]);
 
-    echo "L'événement a bien été ajouté à la base de données.";
+    echo "Les données de l'événement ont bien été ajoutées à la base de données.";
 
 } catch (PDOException $e) {
     error_log($e->getMessage());
-    // DÉBOGAGE : affiche la vraie cause de l'erreur. À remplacer plus tard par un message simple.
-    exit("Erreur SQL : " . $e->getMessage());
+    exit("Une erreur est survenue lors de l'enregistrement.");
 }
