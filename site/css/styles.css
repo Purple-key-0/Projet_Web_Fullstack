@@ -690,6 +690,27 @@ select {
     background-color: #eee;
 }
 
+/* ------------ */
+main { max-width: 520px; margin: 30px auto; padding: 0 15px; }
+
+.ligne-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin: 12px 0;
+}
+.ligne-info p { margin: 0; }
+
+.form-profil { display: grid; gap: 10px; margin-bottom: 20px; }
+.form-profil input, .form-profil button {
+    padding: 10px; font-size: 1rem; width: 100%; box-sizing: border-box;
+}
+.message { min-height: 1.2em; }
+
+.form-cache { display: none !important; }
+
+
 #evenement {
     max-width: 700px;
     margin: 24px auto;
