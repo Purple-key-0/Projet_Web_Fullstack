@@ -3,50 +3,62 @@ html, body {
     padding: 0;
 }
  
+body {
+    min-height: 100vh;
+    background:
+        linear-gradient(to bottom, #777 0%, rgba(119, 119, 119, 0.6) 180px, transparent 400px),
+        url("../assets/img/background_body.jpg") center / cover no-repeat fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 *{
     box-sizing: border-box;
 }
  
 #bandeau_onglets h5 a, div h4 a {
     text-decoration: none;
-    color: black;
+    color: white;
     font-size: 18px;
     font-weight: normal;
 }
  
 #bandeau_onglets a:hover, div h4 a:hover {
-    color: #9B7B36;
+    color: white;
 }
  
 h5{
     font-size: 20px;
-    color: black;
+    color: white;
 }
  
 #en_tete {
-    background-color: #FCF6E3;
+
     margin: 0;
-    fill: #FCF6E3;
     display: flex;
     align-items: right;
     justify-content: space-between;
-    height: 60px;
+    height: 100px;
     width: 100%;
 }
  
 #en_tete #connection{
     text-align: left;
 }
- 
-#titre_site {
-    background-color: white;
+
+#h1_titre_site {
     margin: 0;
-    fill: white;
+    font-size: 60px;
+    color: white;
+}
+
+#titre_site {
+    margin: 0;
     display: flex;
     justify-content: center; 
     align-items: center;     
-    height: 60px;
-    width: 100%;
+    height: 100px;
+    width: 80%;
 }
  
 #connection {
@@ -66,7 +78,7 @@ h5{
     width: 600px;
     font-size: 10px;
     justify-content: center;
-    background-color: #FCF6E3;
+    background-color: #E8E8E8;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -111,7 +123,7 @@ h5{
 }
  
 #liste-evenements li a:hover {
-    background-color: #eee;
+    background-color: #E8E8E8;
 }
  
 .menu-container {
@@ -130,7 +142,7 @@ h5{
     top: 50px;
     left: 0;
     width: 200px;
-    background-color: #FCF6E3;
+    background-color: #E8E8E8;
     border: 1px solid #2a2a2a;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
@@ -146,7 +158,7 @@ h5{
 }
  
 #menu_deroulant a:hover {
-    background-color: #eee4c8;
+    background-color: #E8E8E8;
 }
  
 .menu-cache {
@@ -439,7 +451,7 @@ select {
 }
  
 .form-group:focus-within {
-    border-color: #9B7B36;
+    border-color: #E8E8E8;
 }
  
 .form-group input {
@@ -506,7 +518,7 @@ select {
 }
  
 #submit:hover {
-    background-color: #9B7B36;
+    background-color: #E8E8E8;
 }
  
 /* ============================= */
@@ -716,25 +728,6 @@ select {
     margin-right: 20px;
 }
  
-#bandeau_onglets{
-    border: 1px solid #2a2a2a;
-    border-radius: 20px;
-    margin: auto;
-    height: 35px;
-    width: 600px;
-    font-size: 10px;
-    justify-content: center;
-    background-color: #FCF6E3;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-align: right;
-}
- 
-#bandeau_onglets > * + * {
-    border-left: 1px solid black;
-    padding-left: 5px;
-}
  
  
 .rechercher {
@@ -783,7 +776,7 @@ select {
 }
 
 /* ------------ */
-main { max-width: 520px; margin: 30px auto; padding: 0 15px; }
+#profil { max-width: 520px; margin: 30px auto; padding: 0 15px; }
 
 .ligne-info {
     display: flex;
@@ -832,13 +825,13 @@ main { max-width: 520px; margin: 30px auto; padding: 0 15px; }
     text-decoration: none;
 }
 
-.evenement h2 {
+.evenement #evenement-titre {
     margin: 0 0 16px;
     color: #252525;
     font-size: 1.5rem;
 }
 
-.evenement p {
+.evenement #p_event {
     margin: 8px 0;
     color: #555;
     line-height: 1.5;
