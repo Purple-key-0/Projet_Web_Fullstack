@@ -1,6 +1,20 @@
 <?php
-session_start();
+
+$host = "sql7.freesqldatabase.com";
+$dbName = "sql7839244";
+$user = "sql7839244";
+$pass = "k4ySRIVWAK";
+
+// Connexion à la base de données MySQL
+$dbh = new PDO("mysql:host=$host;dbname=$dbName", $user, $pass);
+
+// Définition de la requête MySQL
+$query  = "SELECT artiste_event FROM events";
+
+
+
 ?>
+
 <?php require __DIR__ . '/entete.php'; ?>
     
     <header class="page_paiement">
@@ -10,7 +24,7 @@ session_start();
 
     
     <main class="infos_event_boite">
-    <form id="event-form" class="page-paiement-contenu" action="ajouter_event.php" method="post">
+    <form id="event-form" class="page-paiement-contenu" action="../php/traitement_creation_event.php" method="post">
 
         
         <section class="container_paiement">
@@ -21,7 +35,7 @@ session_start();
             <div class="champ">
                 <label for="categorie">Type d'événement</label>
                 <div class="form-group">
-                    <select id="categorie" name="categorie" required>
+                    <select id="categorie" name="categorie" >
                         <option value="">Choisir une catégorie</option>
                         <option value="concert">Concert</option>
                         <option value="spectacle">Spectacle</option>
@@ -33,7 +47,7 @@ session_start();
             <div class="champ">
                 <label for="artiste">Artiste de l'événement</label>
                 <div class="form-group">
-                    <input type="text" id="artiste" name="artiste" placeholder="Artiste de l'événement" required>
+                    <input type="text" id="artiste" name="artiste" placeholder="Artiste de l'événement" >
                 </div>
             </div>
 
@@ -41,7 +55,7 @@ session_start();
             <div class="champ">
                 <label for="event">Nom de l'événement</label>
                 <div class="form-group">
-                    <input type="text" id="event" name="event" placeholder="Nom de l'événement" required>
+                    <input type="text" id="event" name="event" placeholder="Nom de l'événement" >
                 </div>
             </div>
 
@@ -50,14 +64,14 @@ session_start();
                 <div class="champ">
                     <label for="date">Date de l'événement</label>
                     <div class="form-group">
-                        <input type="date" id="date" name="date" required>
+                        <input type="date" id="date" name="date" >
                     </div>
                 </div>
 
                 <div class="champ">
                     <label for="time">Heure de l'événement</label>
                     <div class="form-group">
-                        <input type="time" id="time" name="time" required>
+                        <input type="time" id="time" name="time" >
                     </div>
                 </div>
             </div>
@@ -66,7 +80,7 @@ session_start();
             <div class="champ">
                 <label for="lieu">Lieu de l'événement</label>
                 <div class="form-group">
-                    <input type="text" id="lieu" name="lieu" placeholder="Lieu de l'événement" required>
+                    <input type="text" id="lieu" name="lieu" placeholder="Lieu de l'événement" >
                 </div>
             </div>
 
@@ -87,7 +101,7 @@ session_start();
             </div>
 
             
-            <button type="submit" id="submit">
+            <button type="submit" id="submit" name="submit">
                 Créer l'événement →
             </button>
 
