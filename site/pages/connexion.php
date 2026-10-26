@@ -22,7 +22,7 @@ foreach ($result as $value) {
 }
 
 ?>
-
+<?php require __DIR__ . '/entete.php'; ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
