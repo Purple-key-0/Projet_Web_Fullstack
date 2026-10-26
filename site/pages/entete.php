@@ -24,6 +24,7 @@
         <?php endif; ?>
     </div>
 </div>
+    <header id="titre_site"><h1 id="h1_titre_site">Whitelist</h1></header>
     <div><h4 id="connection">
         <?php if (!isset($_SESSION['user'])):?>
             <a href="connexion.php">Se connecter</a>
@@ -31,15 +32,4 @@
             <a href="../php/deconnexion.php">Se déconnecter</a>
         <?php endif; ?>
     </h4></div>
-</header>
-<header id="titre_site"><h1>Whitelist</h1></header>
-<header id="bandeau_onglets">
-    <h5 id="h5_1"><a href="index.php">Accueil</a></h5>
-    <h5><a href="evenements.php">Événements</a></h5>
-    <h5><a href="reservations.php">Mes Réservations</a></h5>
-    <h5>
-        <?php if (isset($_SESSION['user']['roles']) && $_SESSION['user']['roles'] === '["ROLE_ADMIN"]' ):?>
-            <a href="admin_view.php">Gestion d'Événements</a>
-        <?php endif; ?>
-    </h5>
 </header>

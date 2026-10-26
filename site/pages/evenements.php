@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once __DIR__ . '/../config/config.php';
 
 try {
@@ -49,23 +50,23 @@ require __DIR__ . '/entete.php';
 
     <?php foreach ($evenements as $evenement): ?>
         <section class="evenement" >
-            <a href="seance.php?id=<?= (int) $evenement['id_event'] ?>" class="evenement-lien">
-                <h2><?= htmlspecialchars($evenement['nom_event'], ENT_QUOTES, 'UTF-8') ?></h2>
+            <a href="seance.php?id_event=<?= (int) $evenement['id_event'] ?>" class="evenement-lien">
+                <h2 class="evenement-titre"><?= htmlspecialchars($evenement['nom_event'], ENT_QUOTES, 'UTF-8') ?></h2>
 
-                <p>
+                <p class="p_event">
                     <?= htmlspecialchars($evenement['date_event'], ENT_QUOTES, 'UTF-8') ?>
                     à <?= htmlspecialchars($evenement['heure_event'], ENT_QUOTES, 'UTF-8') ?>
                 </p>
 
-                <p>
+                <p class="p_event">
                     Lieu : <?= htmlspecialchars($evenement['lieu_event'], ENT_QUOTES, 'UTF-8') ?>
                 </p>
 
-                <p>
+                <p class="p_event">
                     Artiste : <?= htmlspecialchars($evenement['artiste_event'], ENT_QUOTES, 'UTF-8') ?>
                 </p>
 
-                <p>
+                <p class="p_event">
                     <?= htmlspecialchars($evenement['description_event'], ENT_QUOTES, 'UTF-8') ?>
                 </p>
             </a>

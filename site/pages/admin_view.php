@@ -6,7 +6,7 @@ $user = "sql7839244";
 $pass = "k4ySRIVWAK";
 
 // Connexion à la base de données MySQL
-$dbh = new PDO("mysql:host=$host;dbname=$dbName", $user, $pass);
+$link1 = new PDO("mysql:host=$host;dbname=$dbName", $user, $pass);
 
 ?>
 
@@ -110,24 +110,24 @@ $dbh = new PDO("mysql:host=$host;dbname=$dbName", $user, $pass);
             <div class="champ">
                     <label for="carre-or">Carré OR</label>
                     <div class="form-group">
-                        <label> Nombre de places: <input type="number" name="nbr_carre_or" min="0" placeholder="0"></label>
-                        <label> Prix unitaire: <input type="number" name="prix_carre_or" min="0" step="0.01" placeholder="0.00"></label>
+                        <label> Nombre de places: <input type="number" id="nbr_carre_or" name="nbr_carre_or" min="0" placeholder="0"></label>
+                        <label> Prix unitaire: <input type="number" id="prix_carre_or" name="prix_carre_or" min="0" step="0.01" placeholder="0.00"></label>
                     </div>
                 </div>
 
             <div class="champ">
                     <label for="fosse">Fosse</label>
                     <div class="form-group">
-                        <label> Nombre de places: <input type="number" name="nbr_fosse" min="0" placeholder="0"></label>
-                        <label> Prix unitaire: <input type="number" name="prix_fosse" min="0" step="0.01" placeholder="0.00"></label>
+                        <label> Nombre de places: <input type="number" id="nbr_fosse" name="nbr_fosse" min="0" placeholder="0"></label>
+                        <label> Prix unitaire: <input type="number" id="prix_fosse" name="prix_fosse" min="0" step="0.01" placeholder="0.00"></label>
                     </div>
                 </div>
 
             <div class="champ">
                     <label for="gradins">Gradins</label>
                     <div class="form-group">
-                        <label> Nombre de places: <input type="number" name="nbr_gradins" min="0" placeholder="0"></label>
-                        <label> Prix unitaire: <input type="number" name="prix_gradins" min="0" step="0.01" placeholder="0.00"></label>
+                        <label> Nombre de places: <input type="number" id="nbr_gradins" name="nbr_gradins" min="0" placeholder="0"></label>
+                        <label> Prix unitaire: <input type="number" id="prix_gradins" name="prix_gradins" min="0" step="0.01" placeholder="0.00"></label>
                     </div>
                 </div>
 

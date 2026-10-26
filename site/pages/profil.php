@@ -34,7 +34,7 @@ $titrePage = 'Mon profil';
 <?php require __DIR__ . '/entete.php'; ?>
 <body>
 
-<main>
+<main id="profil">
     <h2>Bonjour <?= htmlspecialchars($u['first_name'] . ' ' . $u['last_name']) ?></h2>
 
     <h3>Mes informations :</h3>
