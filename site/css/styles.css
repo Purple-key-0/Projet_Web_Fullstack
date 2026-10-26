@@ -173,61 +173,7 @@ h5{
     height: 100px;
 }
  
- 
- 
-/* LOUIS*
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
- 
- 
- 
-/* ============================= */
-/* FORMULAIRES GÉNÉRAUX          */
-/* ============================= */
- 
+
 .container {
     border: 1px solid #2a2a2a;
     border-radius: 20px;
@@ -251,27 +197,7 @@ select {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
- 
- 
-/* CSS PAGE ADMIN_VIEW LOUIS */
-/* CSS PAGE ADMIN_VIEW LOUIS */
-/* CSS PAGE ADMIN_VIEW LOUIS */
-/* CSS PAGE ADMIN_VIEW LOUIS */
-/* CSS PAGE ADMIN_VIEW LOUIS */
-/* CSS PAGE ADMIN_VIEW LOUIS */
-/* CSS PAGE ADMIN_VIEW LOUIS */
-/* CSS PAGE ADMIN_VIEW LOUIS */
- 
-/*
-   La page admin_view.php réutilise les classes de paiement.php :
-   .page_paiement, .page-paiement-contenu, .container_paiement,
-   .recapitulatif, .champ, .form-group, .form-row et #submit.
-   Ci-dessous : uniquement ce qui manque pour les select, textarea,
-   input file et le symbole € des prix.
-*/
- 
-/* Select et zone de texte : même rendu que les input dans .form-group */
- 
+
 .form-group select,
 .form-group textarea {
     flex: 1;
@@ -313,25 +239,7 @@ select {
     margin: 0;
 }
  
- 
- 
- 
- 
- 
- 
- 
- 
-/* CSS PAGE PAIEMENT LOUIS */
-/* CSS PAGE PAIEMENT LOUIS */
-/* CSS PAGE PAIEMENT LOUIS */
-/* CSS PAGE PAIEMENT LOUIS */
-/* CSS PAGE PAIEMENT LOUIS */
-/* CSS PAGE PAIEMENT LOUIS */
-/* CSS PAGE PAIEMENT LOUIS */
-/* CSS PAGE PAIEMENT LOUIS */
-/* CSS PAGE PAIEMENT LOUIS */
-/* CSS PAGE PAIEMENT LOUIS */
-/* CSS PAGE PAIEMENT LOUIS */
+
  
 .page_paiement {
     width: 90%;
@@ -780,4 +688,60 @@ select {
  
 #liste-evenements li a:hover {
     background-color: #eee;
+}
+
+#evenement {
+    max-width: 700px;
+    margin: 24px auto;
+    padding: 24px;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+/* test*/
+
+.evenement {
+    max-width: 700px;
+    margin: 24px auto;
+    padding: 24px;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.evenement h2 {
+    margin: 0 0 16px;
+    color: #252525;
+    font-size: 1.5rem;
+}
+
+.evenement p {
+    margin: 8px 0;
+    color: #555;
+    line-height: 1.5;
+}
+
+.evenement a {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 10px 16px;
+    color: #fff;
+    background: #6c3bd1;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.evenement a:hover {
+    background: #5126ad;
+}
+
+@media (max-width: 600px) {
+    .evenement {
+        margin: 16px;
+        padding: 18px;
+    }
 }

@@ -1,69 +1,75 @@
 <?php
+require_once __DIR__ . '/../config/config.php';
 
-require __DIR__ . '/../config/config.php';
+try {
+    $pdo = new PDO(
+        "mysql:host=$host;dbname=$dbName;charset=utf8mb4",
+        $user,
+        $pass,
+        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+    );
 
-// Connexion à la base de données MySQL
-$dbh = new PDO("mysql:host=$host;dbname=$dbName", $user, $pass);
-
-// Définition de la requête MySQL
-$query  = "SELECT last_name, first_name FROM user";
-
-// Envoi de la requête à la base de données et récupération des résultats de la requête
-$stt = $dbh->query($query);
-$result = $stt->fetchAll();
-
-$htmlTable = "";
-foreach ($result as $value) {
-    $htmlTable .= "<tr>";
-    $htmlTable .= "<td>{$value['last_name']}</td>";
-    $htmlTable .= "<td>{$value['first_name']}</td>";
-    $htmlTable .= "</tr>";
+    $evenements = $pdo
+        ->query('SELECT * FROM events ORDER BY date_event')
+        ->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    die('Impossible de récupérer les événements.');
 }
 
+require __DIR__ . '/entete.php';
 ?>
-<?php require __DIR__ . '/entete.php'; ?>
+
 <body>
-    
     <div class="rechercher">
-    <input
-        type="search"
-        id="barre-de-recherche"
-        placeholder="Rechercher un événement"
-        autocomplete="off"
-    >
+        <input
+            type="search"
+            id="barre-de-recherche"
+            placeholder="Rechercher un événement"
+            autocomplete="off"
+        >
 
-    <ul id="liste-evenements">
-        <li>
-            <a href="seance.html" data-mots-cles="Musique Concert Rap français Hip-hop Rap Musique urbaine Événement musical Live / spectacle musical Culture Sortie / événement">
-                Décennie - Gradur
-            </a>
-        </li>
+        <ul id="liste-evenements">
+            <?php foreach ($evenements as $evenement): ?>
+                <li>
+                    <a
+                        href="seance.php?nom=<?= urlencode($evenement['nom_event']) ?>"
+                        data-mots-cles="<?= htmlspecialchars(
+                            ($evenement['artiste_event'] ?? '') . ' ' .
+                            ($evenement['type_event'] ?? ''),
+                            ENT_QUOTES,
+                            'UTF-8'
+                        ) ?>"
+                    >
+                        <?= htmlspecialchars($evenement['nom_event'], ENT_QUOTES, 'UTF-8') ?>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
 
-        <li>
-            <a href="festival.html" data-mots-cles="festival musique été">
-                Festival de musique
-            </a>
-        </li>
-    </ul>
-</div>
-    <header class="nouveaute">
-        <h2>Nouveauté !</h2>
+    <?php foreach ($evenements as $evenement): ?>
+        <section class="evenement">
+            <h2><?= htmlspecialchars($evenement['nom_event'], ENT_QUOTES, 'UTF-8') ?></h2>
 
-        <div class="nouveaute-infos">
-            <p><i>Vendredi 26 Novembre 2026  :</i></p>
-            <h3> <a href="seance.html" class="nouveaute-lien">Concert Décennie - Gradur : Bordeaux</a> </h3>
-        </div>
-        <div class="gradur">
-            <img src="../assets/img/Decennie.jpg" alt="Gradur" class="nouveaute-image">
-        </div>
-    </header>
-    <header class="delete-edit">
-        <h3>
-            <button type="button"> Modifier l'événement</button>
-            <button type="button"> Supprimer l'événement</button>
-        </h3>
-    </header>
+            <p>
+                <?= htmlspecialchars($evenement['date_event'], ENT_QUOTES, 'UTF-8') ?>
+                à <?= htmlspecialchars($evenement['heure_event'], ENT_QUOTES, 'UTF-8') ?>
+            </p>
+
+            <p>
+                Lieu : <?= htmlspecialchars($evenement['lieu_event'], ENT_QUOTES, 'UTF-8') ?>
+            </p>
+
+            <p>
+                Artiste : <?= htmlspecialchars($evenement['artiste_event'], ENT_QUOTES, 'UTF-8') ?>
+            </p>
+
+            <p>
+                <?= htmlspecialchars($evenement['description_event'], ENT_QUOTES, 'UTF-8') ?>
+            </p>
+        </section>
+    <?php endforeach; ?>
+
     <script src="../js/evenements.js"></script>
-
 </body>
 </html>
