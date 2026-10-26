@@ -23,7 +23,6 @@ foreach ($result as $value) {
 ?>
 <?php require __DIR__ . '/entete.php'; ?>
 <body>
-<?php require __DIR__ . '/menu.php'; ?>
 
 <main>
     <h2>Bonjour <?= htmlspecialchars($u['first_name'] . ' ' . $u['last_name']) ?></h2>
