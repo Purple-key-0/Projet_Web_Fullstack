@@ -34,10 +34,10 @@ foreach ($result as $value) {
             <label for="password">Votre mot de passe</label>
             <input type="password" name="password" id="password">
         </div>
-        <input type="submit" value="Se connecter">
+        <input type="submit" ; style="background: #FCF6E3;" value="Se connecter">
         <div class="register-container">
         <p>Pas encore de compte ?</p>
-        <a href="inscription.php">S'inscrire</a>
+        <a class="inscription" href="inscription.php">S'inscrire</a>
     </div>
     </form>
 </body>
