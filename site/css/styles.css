@@ -850,3 +850,13 @@ select {
         padding: 18px;
     }
 }
+main h2 {
+    font-size: 50px;
+    background:  #FCF6E3;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+main h3 {
+    font-size: 25px;
+}
+
