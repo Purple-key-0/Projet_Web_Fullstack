@@ -867,3 +867,8 @@ main h3 {
     font-size: 25px;
 }
 
+.inscription{
+    background:  #000000;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
