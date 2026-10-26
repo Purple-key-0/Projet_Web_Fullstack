@@ -857,3 +857,13 @@ main { max-width: 520px; margin: 30px auto; padding: 0 15px; }
         padding: 18px;
     }
 }
+main h2 {
+    font-size: 50px;
+    background:  #FCF6E3;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+main h3 {
+    font-size: 25px;
+}
+
