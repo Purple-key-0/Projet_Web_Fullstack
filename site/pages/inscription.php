@@ -23,29 +23,31 @@ foreach ($result as $value) {
 ?>
 <?php require __DIR__ . '/entete.php'; ?>
 <body>
-    <form action="../php/traitement_inscription.php" method="post">
-        <div>
-            <label for="email">Votre e-mail</label>
-            <input type="email" name="email" id="email">
-        </div>
-        <div>
-            <label for="password">Votre mot de passe</label>
-            <input type="password" name="password" id="password">
-        </div>
-        <div>
-            <label for="last-name">Votre nom de famille</label>
-            <input type="text" name="last_name" id="last-name">
-        </div>
-        <div>
-            <label for="first-name">Votre prénom</label>
-            <input type="text" name="first_name" id="first-name">
-        </div>
-        <div>
-            <label for="birth-date">Votre date de naissance</label>
-            <input type="date" name="birth_date" id="birth-date">
-        </div>
-        <input type="submit" value="S'inscrire">
-    </form>
+    <section class="container">
+        <form action="../php/traitement_inscription.php" method="post">
+            <div>
+                <label class="font-container" for="email">Votre e-mail</label>
+                <input class="form-group"type="email" name="email" id="email" required>
+            </div>
+            <div>
+                <label class="font-container" for="password">Votre mot de passe</label>
+                <input class="form-group" type="password" name="password" id="password" required>
+            </div>
+            <div>
+                <label class="font-container" for="last-name">Votre nom de famille</label>
+                <input class="form-group" type="text" name="last_name" id="last-name" required>
+            </div>
+            <div>
+                <label class="font-container" for="first-name">Votre prénom</label>
+                <input class="form-group" type="text" name="first_name" id="first-name" required>
+            </div>
+            <div>
+                <label class="font-container" for="birth-date">Votre date de naissance</label>
+                <input class="form-group" type="date" name="birth_date" id="birth-date" required>
+            </div>
+            <input class="submit" type="submit" value="S'inscrire">
+        </form>
+    </section>
 </body>
 
 </html>
