@@ -36,6 +36,7 @@ $titrePage = 'Mon profil';
 
     <section class="container">
         <div id="profil">
+            <h1>Mon profil</h1>
             <h2 class="font-container">Bonjour <?= htmlspecialchars($u['first_name'] . ' ' . $u['last_name']) ?></h2>
 
             <h3 class="font-container">Mes informations :</h3>
