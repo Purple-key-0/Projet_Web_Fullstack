@@ -15,5 +15,5 @@ $stmt = $dbh->prepare(
 );
 $stmt->execute([$id_user, $id_event]);
 
-header('Location: ../pages/index.php');
+header('Location: ../pages/reservations.php');
 exit;

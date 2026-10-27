@@ -100,11 +100,18 @@ h5{
 }
  
 #barre-de-recherche {
+    background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
+
 }
  
+#barre-de-recherche::placeholder {
+    color: rgba(255, 255, 255, 0.514);
+    opacity: 1;
+}
+
 #liste-evenements {
     display: none;
     position: absolute;
@@ -944,3 +951,7 @@ main h3 {
     font-size: 18px;
 }
 
+#reserver-button {
+    text-align:center;
+    text-decoration: none;
+}

@@ -72,7 +72,7 @@ $dejaInscrit = (bool) $check->fetchColumn();
                     <img src="../image_event/<?= htmlspecialchars($evenement['id_event'], ENT_QUOTES, 'UTF-8') ?>.jpg" alt="Image de l'événement">
                 </div>
                 <?php if (!$dejaInscrit): ?>
-                    <a href="paiement.php?id_event=<?= (int) $evenement['id_event'] ?>" class="evenement-lien">
+                    <a href="paiement.php?id_event=<?= (int) $evenement['id_event'] ?>" class="submit" id="reserver-button">
                         Réserver ma place !
                     </a>
                 <?php else: ?>
