@@ -20,6 +20,7 @@ $prix_gradin = $_POST['prix_gradins'] ?? '';
 $place_gradin = $_POST['nbr_gradins'] ?? '';
 $prix_fosse = $_POST['prix_fosse'] ?? '';
 $place_fosse = $_POST['nbr_fosse'] ?? '';
+$image_event = $_POST['url_image'] ?? '';
 
 
 // Connexion à la base de données
@@ -40,8 +41,8 @@ try {
     );
 
     // Préparer la requête SQL
-    $insertQuery = "INSERT INTO events (artiste_event, nom_event, lieu_event, description_event, type_event, date_event, heure_event, tarif_or, place_or, tarif_gradin, place_gradin, tarif_fosse, place_fosse)
-                    VALUES (:artiste, :nom_event, :lieu_event, :description_event, :type_event, :date_event, :heure_event, :prix_or, :place_or, :prix_gradin, :place_gradin, :prix_fosse, :place_fosse)";
+    $insertQuery = "INSERT INTO events (artiste_event, nom_event, lieu_event, description_event, type_event, date_event, heure_event, tarif_or, place_or, tarif_gradin, place_gradin, tarif_fosse, place_fosse, image)
+                    VALUES (:artiste, :nom_event, :lieu_event, :description_event, :type_event, :date_event, :heure_event, :prix_or, :place_or, :prix_gradin, :place_gradin, :prix_fosse, :place_fosse, :image_event)";
 
     $stmt1 = $link1->prepare($insertQuery);
 
@@ -59,7 +60,8 @@ try {
         'prix_gradin' => $prix_gradin,
         'place_gradin' => $place_gradin,
         'prix_fosse' => $prix_fosse,
-        'place_fosse' => $place_fosse
+        'place_fosse' => $place_fosse,
+        'image_event' => $image_event,
     ]);
 
     echo "Les données de l'événement ont bien été ajoutées à la base de données.";

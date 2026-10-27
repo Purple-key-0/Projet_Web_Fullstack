@@ -58,6 +58,10 @@ if (!$evenement) {
                 <p>
                     <?= htmlspecialchars($evenement['description_event'], ENT_QUOTES, 'UTF-8') ?>
                 </p>
+                <div class="image_evenement_">
+                    <img src="<?= htmlspecialchars($evenement['image'], ENT_QUOTES, 'UTF-8') ?>" alt="Image de l'événement">
+                </div>
+                
     </section>
 </body>
 </html>

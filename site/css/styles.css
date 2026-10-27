@@ -12,6 +12,10 @@ body {
     background-size: cover;
 }
 
+input, textarea, select {
+    color: white;
+}
+
 *{
     box-sizing: border-box;
 }
@@ -893,4 +897,14 @@ main h3 {
     border-radius: 10px;
     width : 500px;
     margin : 0 auto;
+}
+
+
+
+/* css pour les images des evenements dans evenements.php et seance.php */
+.image_evenement_ {
+    text-align: center;
+    margin-top: 15px;
+    width: 200px;
+    height: auto;
 }
