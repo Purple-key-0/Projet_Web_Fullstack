@@ -32,72 +32,69 @@ $titrePage = 'Mon profil';
 
 ?>
 <?php require __DIR__ . '/entete.php'; ?>
-<body>
+<div id="profil">
 
-<div id="bloc-generale">
-    <main id="profil">
-        <h2>Bonjour <?= htmlspecialchars($u['first_name'] . ' ' . $u['last_name']) ?></h2>
+    <section class="container">
+        <div id="profil">
+            <h2 class="font-container">Bonjour <?= htmlspecialchars($u['first_name'] . ' ' . $u['last_name']) ?></h2>
 
-    <h3>Mes informations :</h3>
+            <h3 class="font-container">Mes informations :</h3>
 
-    <div class="ligne-info">
-        <p><strong>Adresse e-mail :</strong> <span id="email-actuel"><?= htmlspecialchars($u['email']) ?></span></p>
-            <button type="button" style="background: #FCF6E3;"  onclick="afficherFormulaire('form-email')">Modifier l'e-mail</button>
-    </div>
-    <form id="form-email" class="form-profil form-cache">
-        <input type="email" name="email" placeholder="Nouvelle adresse e-mail" required>
-        <input type="password" name="mdp" placeholder="Mot de passe actuel (confirmation)" required>
-        <button type="submit" ; style="background: #FCF6E3;">Valider</button>
-        <div class="message"></div>
-    </form>
+            <div class="ligne-info">
+                <p class="font-container"><strong>Adresse e-mail :</strong> <span id="email-actuel"><?= htmlspecialchars($u['email']) ?></span></p>
+                    <button type="button" style="background: #c0bfbf;"  onclick="afficherFormulaire('form-email')">Modifier l'e-mail</button>
+            </div>
+            <form id="form-email" class="form-profil form-cache">
+                <input type="email" name="email" placeholder="Nouvelle adresse e-mail" required>
+                <input type="password" name="mdp" placeholder="Mot de passe actuel (confirmation)" required>
+                <button type="submit" ; style="background: #c0bfbf;">Valider</button>
+                <div class="message"></div>
+            </form>
 
-    <div class="ligne-info">
-        <p><strong>Mot de passe :</strong> ••••••••</p>
-            <button type="button" style="background: #FCF6E3;" onclick="afficherFormulaire('form-mdp')">Modifier le mot de passe</button>
-    </div>
-    <form id="form-mdp" class="form-profil form-cache">
-        <input type="password" name="ancien" placeholder="Ancien mot de passe" required>
-        <input type="password" name="nouveau" placeholder="Nouveau mot de passe (8 caractères min.)" minlength="8" required>
-        <input type="password" name="confirmation" placeholder="Confirmer le nouveau mot de passe" required>
-        <button type="submit"; style="background: #FCF6E3">Valider</button>
-        <div class="message"></div>
-    </form>
-</main>
-</div>
-<script>
-    function afficherFormulaire(id) {
-    document.getElementById(id).classList.toggle('form-cache');
-}
-function brancherFormulaire(idForm, urlPhp, apresSucces) {
-    const form = document.getElementById(idForm);
-    const message = form.querySelector('.message');
-
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const data = new FormData(form);
-
-        if (data.has('confirmation') && data.get('nouveau') !== data.get('confirmation')) {
-            message.textContent = 'Les mots de passe ne correspondent pas.';
-            message.style.color = 'crimson';
-            return;
+            <div class="ligne-info">
+                <p class="font-container"><strong>Mot de passe :</strong> ••••••••</p>
+                    <button type="button" style="background: #c0bfbf;" onclick="afficherFormulaire('form-mdp')">Modifier le mot de passe</button>
+            </div>
+            <form id="form-mdp" class="form-profil form-cache">
+                <input type="password" name="ancien" placeholder="Ancien mot de passe" required>
+                <input type="password" name="nouveau" placeholder="Nouveau mot de passe (8 caractères min.)" minlength="8" required>
+                <input type="password" name="confirmation" placeholder="Confirmer le nouveau mot de passe" required>
+                <button type="submit"; style="background: #c0bfbf">Valider</button>
+                <div class="message"></div>
+            </form>
+        </main>
+    <script>
+        function afficherFormulaire(id) {
+        document.getElementById(id).classList.toggle('form-cache');
         }
-        try {
-            const r = await fetch(urlPhp, { method: 'POST', body: data });
-            const res = await r.json();
-            message.textContent = res.message;
-            message.style.color = res.succes ? 'green' : 'crimson';
-            if (res.succes) { if (apresSucces) apresSucces(data); form.reset(); }
-        } catch (err) {
-            message.textContent = 'Erreur de connexion au serveur.';
-            message.style.color = 'crimson';
-        }
-    });
-}
+        function brancherFormulaire(idForm, urlPhp, apresSucces) {
+            const form = document.getElementById(idForm);
+            const message = form.querySelector('.message');
 
-brancherFormulaire('form-mdp', 'changer_mdp.php');
-brancherFormulaire('form-email', 'changer_email.php', (d) => {
-    document.getElementById('email-actuel').textContent = d.get('email');
-});
-</script>
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const data = new FormData(form);
+
+            if (data.has('confirmation') && data.get('nouveau') !== data.get('confirmation')) {
+                message.textContent = 'Les mots de passe ne correspondent pas.';
+                message.style.color = 'crimson';
+                return;
+            }
+            try {
+                const r = await fetch(urlPhp, { method: 'POST', body: data });
+                const res = await r.json();
+                message.textContent = res.message;
+                message.style.color = res.succes ? 'green' : 'crimson';
+                if (res.succes) { if (apresSucces) apresSucces(data); form.reset(); }
+                    } catch (err) {
+                message.textContent = 'Erreur de connexion au serveur.';
+                message.style.color = 'crimson';}});
+        }
+
+        brancherFormulaire('form-mdp', 'changer_mdp.php');
+        brancherFormulaire('form-email', 'changer_email.php', (d) => {
+        document.getElementById('email-actuel').textContent = d.get('email');
+        });
+    </script>
 </body>
 </html>
