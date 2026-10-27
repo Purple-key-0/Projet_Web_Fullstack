@@ -67,7 +67,7 @@ h5{
  
 #en_tete #connection {
     text-align: right;
-    margin-right: 20px;
+    margin-right: 0;
 }
  
 #bandeau_onglets{
@@ -127,9 +127,8 @@ h5{
 }
  
 .menu-container {
-    position: relative;
     display: inline-block;
-    margin-left: 15px;
+    height: 100%;
 }
  
 #logo_menu {
@@ -139,7 +138,7 @@ h5{
  
 #menu_deroulant {
     position: absolute;
-    top: 50px;
+    top: 0;
     left: 0;
     width: 200px;
     background-color: #E8E8E8;
