@@ -391,7 +391,7 @@ select:has(option[value=""]:checked) {
 
 .container {
     min-width: 0;
-    width: 40vh;
+    width: 80vh;
     padding: 25px;
     justify-content: center;
  
