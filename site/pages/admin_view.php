@@ -1,7 +1,18 @@
 <?php
 session_start();
+<<<<<<< HEAD
 
 require __DIR__ . '/../config/config.php';
+=======
+<<<<<<< HEAD
+=======
+
+require __DIR__ . '/../config/config.php';
+
+session_start();
+>>>>>>> 5ad9773e221de1b82ecb79f8b818299bbfdbdd7f
+require_once __DIR__ . '/../config/config.php';
+>>>>>>> 72a9a39e316b344ec2284e49d651657459eb56a6
 
 $host = "sql7.freesqldatabase.com";
 $dbName = "sql7839244";
@@ -22,7 +33,7 @@ $link1 = new PDO("mysql:host=$host;dbname=$dbName", $user, $pass);
 
     
     <main class="infos_event_boite">
-    <form id="event-form" class="page-paiement-contenu" action="../php/traitement_creation_event.php" method="post">
+    <form id="event-form" class="page-paiement-contenu" action="../php/traitement_creation_event.php" method="post" enctype="multipart/form-data">
 
         
         <section class="container_paiement">
@@ -93,8 +104,8 @@ $link1 = new PDO("mysql:host=$host;dbname=$dbName", $user, $pass);
            
             <div class="champ">
                 <label for="image">Image de l'événement</label>
-                <div class="form-group">
-                    <input type="url" id="url_image" name="url_image" placeholder="https://exemple.fr/image.jpg" required>
+                <div class="form-group_image">
+                    <input type="file" id="image_event" name="image_event" required>
                 </div>
             </div>
 

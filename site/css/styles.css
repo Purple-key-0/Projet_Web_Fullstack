@@ -100,11 +100,18 @@ h5{
 }
  
 #barre-de-recherche {
+    background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
+
 }
  
+#barre-de-recherche::placeholder {
+    color: rgba(255, 255, 255, 0.514);
+    opacity: 1;
+}
+
 #liste-evenements {
     display: none;
     position: absolute;
@@ -549,7 +556,7 @@ select:has(option[value=""]:checked) {
     border: none;
     border-radius: 7px;
     background-color: #202020;
-    color: white;
+    color: rgba(255, 255, 255, 0.842);
     font-family: inherit;
     font-size: 16px;
     font-weight: bold;
@@ -558,7 +565,7 @@ select:has(option[value=""]:checked) {
 }
  
 .submit:hover {
-    background-color: #E8E8E8;
+    background-color: #808080;
 }
  
 
@@ -915,17 +922,6 @@ main h3 {
     margin : 0 auto;
 }
 
-
-
-
-/* css pour les images des evenements dans evenements.php et seance.php */
-.image_evenement_ {
-    text-align: center;
-    margin-top: 15px;
-    width: 200px;
-    height: auto;
-}
-
 .pourquoi {
     font-size: 30px;
     color:#FCF6E3
@@ -943,8 +939,18 @@ main h3 {
 #index-body p {
     font-size: 18px;
 }
+<<<<<<< HEAD
 
+<<<<<<< HEAD
 #profil h1{
     text-align: center;
     color:white
 }
+=======
+#reserver-button {
+    text-align:center;
+    text-decoration: none;
+}
+=======
+>>>>>>> c5bccb350f74dc8b0b92dcb15654a45c32497d7f
+>>>>>>> 72a9a39e316b344ec2284e49d651657459eb56a6
