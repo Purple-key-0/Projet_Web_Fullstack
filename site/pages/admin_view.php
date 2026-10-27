@@ -1,22 +1,11 @@
 <?php
 session_start();
-<<<<<<< HEAD
 
-require __DIR__ . '/../config/config.php';
-=======
-<<<<<<< HEAD
-=======
 
 require __DIR__ . '/../config/config.php';
 
-<<<<<<< HEAD
-=======
-session_start();
->>>>>>> 5ad9773e221de1b82ecb79f8b818299bbfdbdd7f
 require_once __DIR__ . '/../config/config.php';
->>>>>>> 72a9a39e316b344ec2284e49d651657459eb56a6
 
->>>>>>> 3caef7c3c466fbcade0adbb6499e29843dc08562
 $host = "sql7.freesqldatabase.com";
 $dbName = "sql7839244";
 $user = "sql7839244";
