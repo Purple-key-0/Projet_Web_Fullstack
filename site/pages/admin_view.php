@@ -91,7 +91,7 @@ $link1 = new PDO("mysql:host=$host;dbname=$dbName", $user, $pass);
             <div class="champ">
                 <label for="image">Image de l'événement</label>
                 <div class="form-group">
-                    <input type="file" id="image" name="image" accept="image/*">
+                    <input type="url" id="url_image" name="url_image" placeholder="https://exemple.fr/image.jpg" required>
                 </div>
             </div>
 

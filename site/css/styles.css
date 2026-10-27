@@ -12,6 +12,10 @@ body {
     background-size: cover;
 }
 
+input, textarea, select {
+    color: white;
+}
+
 *{
     box-sizing: border-box;
 }
@@ -387,6 +391,10 @@ select:has(option[value=""]:checked) {
 
 #profil {
     justify-content: center;
+}
+
+.font-container {
+    color: white;
 }
 
 .container {
@@ -907,6 +915,16 @@ main h3 {
     margin : 0 auto;
 }
 
+
+
+
+/* css pour les images des evenements dans evenements.php et seance.php */
+.image_evenement_ {
+    text-align: center;
+    margin-top: 15px;
+    width: 200px;
+    height: auto;
+}
 
 .pourquoi {
     font-size: 30px;
