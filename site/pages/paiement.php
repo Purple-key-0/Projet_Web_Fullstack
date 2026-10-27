@@ -1,24 +1,46 @@
 <?php
-
+session_start();
 require __DIR__ . '/../config/config.php';
 
 // Connexion à la base de données MySQL
 $dbh = new PDO("mysql:host=$host;dbname=$dbName", $user, $pass);
+$id_user = $_SESSION['user']['id'];
 
-// Définition de la requête MySQL
-$query  = "SELECT last_name, first_name FROM user";
+$id = filter_input(INPUT_GET, 'id_event', FILTER_VALIDATE_INT);
 
-// Envoi de la requête à la base de données et récupération des résultats de la requête
-$stt = $dbh->query($query);
-$result = $stt->fetchAll();
-
-$htmlTable = "";
-foreach ($result as $value) {
-    $htmlTable .= "<tr>";
-    $htmlTable .= "<td>{$value['last_name']}</td>";
-    $htmlTable .= "<td>{$value['first_name']}</td>";
-    $htmlTable .= "</tr>";
+if (!$id) {
+    http_response_code(400);
+    exit('Identifiant invalide.');
 }
+
+try {
+    $pdo = new PDO(
+        "mysql:host=$host;dbname=$dbName;charset=utf8mb4",
+        $user,
+        $pass,
+        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+    );
+
+    $requete = $pdo->prepare('SELECT * FROM events WHERE id_event = :id');
+    $requete->execute(['id' => $id]);
+    $evenement = $requete->fetch(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    http_response_code(500);
+    exit('Erreur lors de la récupération de l’événement.');
+}
+
+if (!$evenement) {
+    http_response_code(404);
+    exit('Événement introuvable.');
+}
+
+$check = $pdo->prepare(
+    'SELECT 1 FROM user_event WHERE user_id = ? AND event_id = ?'
+);
+$check->execute([$id_user, $evenement['id_event']]);
+
+$dejaInscrit = (bool) $check->fetchColumn();
+
 
 ?>
 <?php require __DIR__ . '/entete.php'; ?>
@@ -48,7 +70,7 @@ foreach ($result as $value) {
                 >
             </div>
 
-            <form action="" method="post">
+            <form action="../php/inscription_event.php" method="post">
 
                 <!-- Numéro de carte -->
                 <div class="champ">
@@ -150,10 +172,10 @@ foreach ($result as $value) {
                     </label>
                 </div>
 
-                <!-- Bouton de paiement -->
-                <button type="submit" id="submit">
-                    Payer maintenant →
-                </button>
+                    <input type="hidden" name="id_event" value="<?= htmlspecialchars($evenement['id_event'], ENT_QUOTES, 'UTF-8') ?>">
+                    <button type="submit" class="submit" name="submit">
+                        Passer au paiement
+                    </button>
 
             </form>
 

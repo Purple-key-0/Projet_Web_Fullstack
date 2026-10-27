@@ -543,13 +543,13 @@ select:has(option[value=""]:checked) {
  
 /* Bouton payer */
  
-#submit {
+.submit {
     width: 100%;
     padding: 15px;
     border: none;
     border-radius: 7px;
     background-color: #202020;
-    color: white;
+    color: rgba(255, 255, 255, 0.842);
     font-family: inherit;
     font-size: 16px;
     font-weight: bold;
@@ -557,8 +557,8 @@ select:has(option[value=""]:checked) {
     transition: background-color 0.2s;
 }
  
-#submit:hover {
-    background-color: #E8E8E8;
+.submit:hover {
+    background-color: #808080;
 }
  
 
@@ -901,7 +901,7 @@ main h3 {
 }
 
 .inscription{
-    background:  #000000;
+    background: white;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -932,3 +932,7 @@ main h3 {
 #index-body p {
     font-size: 18px;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> a87d89e602be7b602e9ecac5af8fee70ab2f13e4
