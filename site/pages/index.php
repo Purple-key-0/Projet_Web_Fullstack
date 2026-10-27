@@ -26,7 +26,7 @@ foreach ($result as $value) {
 
 <body id ="index-body">
     <div id="bienvenue" class="container">
-        <h2>Bienvenue sur Whitelist!</h2>
+        <h2>Bienvenue sur Whitelist !</h2>
         <p>Vivez chaque moment en grand : Concerts, spectacles, festivals, théâtre, sport, humour… Retrouvez tous les événements qui font vibrer votre ville et au-delà, en quelques clics seulement.
 <br><br>
 Notre plateforme vous offre un accès simple et rapide à des milliers d'événements. Choisissez votre place, payez en toute sécurité et recevez votre billet instantanément sur votre téléphone. Plus de files d'attente, plus de stress : l'essentiel, c'est le spectacle.
@@ -42,6 +42,9 @@ Notre plateforme vous offre un accès simple et rapide à des milliers d'événe
 
 Que vous soyez fan de musique, passionné de théâtre ou en quête d'une sortie entre amis, trouvez votre prochaine émotion et réservez dès maintenant.
 </p>
+<div id="decouvrir_les_evenements">
+        <input type="button" value="Découvrir les Événements !" style="background: #FCF6E3" onclick="window.location.href='evenements.php'">
+    </div>
     </div>
 </body>
 </html>
