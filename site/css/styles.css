@@ -867,7 +867,12 @@ select:has(option[value=""]:checked) {
 }
 main h2 {
     font-size: 50px;
+<<<<<<< HEAD
     background:  white;
+=======
+    background:  #FCF6E3;
+    background-clip: text;
+>>>>>>> 260432782f8d0477fa32512f1e95352c7cae5f66
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -877,6 +882,15 @@ main h3 {
 
 .inscription{
     background:  #000000;
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+#bloc-generale{
+    box-sizing : border-box ;
+    border : 1px solid #FCF6E3;
+    border-radius: 10px;
+    width : 500px;
+    margin : 0 auto;
 }
