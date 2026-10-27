@@ -43,7 +43,7 @@ Notre plateforme vous offre un accès simple et rapide à des milliers d'événe
 Que vous soyez fan de musique, passionné de théâtre ou en quête d'une sortie entre amis, trouvez votre prochaine émotion et réservez dès maintenant.
 </p>
 <div id="decouvrir_les_evenements">
-        <input type="button" value="Découvrir les Événements !" style="background: #FCF6E3" onclick="window.location.href='evenements.php'">
+        <input type="button" value="Découvrir les Événements !" style="background: #FCF6E3; color: #000;" onclick="window.location.href='evenements.php'">
     </div>
     </div>
 </body>
