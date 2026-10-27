@@ -235,9 +235,9 @@ h5{
  
  
  
-/* ============================= */
-/* FORMULAIRES GÉNÉRAUX          */
-/* ============================= */
+
+/* formulaire generaux         */
+
  
 .container {
     border: 1px solid #2a2a2a;
@@ -253,6 +253,7 @@ h5{
     align-items: stretch;
     gap: 15px;
 }
+
  
 input,
 textarea,
@@ -273,13 +274,7 @@ select {
 /* CSS PAGE ADMIN_VIEW LOUIS */
 /* CSS PAGE ADMIN_VIEW LOUIS */
  
-/*
-   La page admin_view.php réutilise les classes de paiement.php :
-   .page_paiement, .page-paiement-contenu, .container_paiement,
-   .recapitulatif, .champ, .form-group, .form-row et #submit.
-   Ci-dessous : uniquement ce qui manque pour les select, textarea,
-   input file et le symbole € des prix.
-*/
+
  
 /* Select et zone de texte : même rendu que les input dans .form-group */
  
@@ -322,16 +317,29 @@ select {
  
 .recapitulatif .champ {
     margin: 0;
+    color:white;
 }
  
+
+input[type="date"], input[type="time"] {
+  color: white; 
+}
+
+
+/* changement couleur du select de type event dans admin_view.php */
+
+option[value=""],option[value="spectacle"],option[value="concert"] {
+  color: white;
+  background-color: rgba(85, 85, 85, 0.5);
+}
+
+select:has(option[value="spectacle"]:checked),
+select:has(option[value="concert"]:checked),
+select:has(option[value=""]:checked) {
+  color: white;
+}
  
- 
- 
- 
- 
- 
- 
- 
+
 /* CSS PAGE PAIEMENT LOUIS */
 /* CSS PAGE PAIEMENT LOUIS */
 /* CSS PAGE PAIEMENT LOUIS */
@@ -352,11 +360,12 @@ select {
  
 .page_paiement h1 {
     margin-bottom: 8px;
+    color:white;
 }
  
 .page_paiement p {
     margin-top: 0;
-    color: #555;
+    color:white;
 }
  
  
@@ -364,9 +373,7 @@ select {
  
  
 .page-paiement-contenu {
-    display: grid;
- 
-    
+    display: grid;  
     grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
  
     gap: 25px;
@@ -374,6 +381,7 @@ select {
     max-width: 1200px;
     margin: 30px auto 40px;
     align-items: start;
+    color:white;
 }
  
  
@@ -388,7 +396,8 @@ select {
  
     border: 1px solid #2a2a2a;
     border-radius: 20px;
-    background-color: #fffdfd;
+    background-color: rgba(0, 0, 0, 0.5);
+    
  
     display: flex;
     flex-direction: column;
@@ -400,6 +409,7 @@ select {
 .recapitulatif h2 {
     margin-top: 0;
     font-size: 22px;
+    color:white;
 }
  
 /* Logos Visa et Mastercard */
@@ -446,7 +456,12 @@ select {
     min-width: 0;
     border: 1px solid #ccc;
     border-radius: 7px;
-    background-color: white;
+    background-color: rgb(208 208 208 / 50%);
+}
+
+::placeholder {
+    color:white;
+    opacity: 1;
 }
  
 .form-group:focus-within {
@@ -520,9 +535,9 @@ select {
     background-color: #E8E8E8;
 }
  
-/* ============================= */
-/* BOÎTE RÉCAPITULATIF            */
-/* ============================= */
+
+/* boite recap */
+
  
 .recapitulatif {
     min-width: 0;
@@ -532,7 +547,7 @@ select {
  
     border: 1px solid #2a2a2a;
     border-radius: 20px;
-    background-color: #fffdfd;
+    background-color: rgba(0, 0, 0, 0.5);
  
     display: flex;
     flex-direction: column;
@@ -575,7 +590,7 @@ select {
 .prix-total {
     padding: 15px;
     border-radius: 7px;
-    background-color: #FCF6E3;
+    background-color: white;
     color: #17191c;
 }
  
@@ -594,9 +609,9 @@ select {
     line-height: 1.5;
 }
  
-/* ============================= */
-/* TABLETTES ET PETITS ÉCRANS    */
-/* ============================= */
+
+/* ecrans reduit    */
+
  
 @media (max-width: 800px) {
  
@@ -611,9 +626,9 @@ select {
     }
 }
  
-/* ============================= */
-/* TÉLÉPHONES                    */
-/* ============================= */
+
+/* telephone  */
+
  
 @media (max-width: 480px) {
  
@@ -851,7 +866,12 @@ select {
 }
 main h2 {
     font-size: 50px;
+<<<<<<< HEAD
+    background:  white;
+=======
     background:  #FCF6E3;
+    background-clip: text;
+>>>>>>> 260432782f8d0477fa32512f1e95352c7cae5f66
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -859,3 +879,17 @@ main h3 {
     font-size: 25px;
 }
 
+.inscription{
+    background:  #000000;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#bloc-generale{
+    box-sizing : border-box ;
+    border : 1px solid #FCF6E3;
+    border-radius: 10px;
+    width : 500px;
+    margin : 0 auto;
+}
