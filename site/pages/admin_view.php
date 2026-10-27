@@ -1,4 +1,7 @@
 <?php
+session_start();
+
+require __DIR__ . '/../config/config.php';
 
 $host = "sql7.freesqldatabase.com";
 $dbName = "sql7839244";
