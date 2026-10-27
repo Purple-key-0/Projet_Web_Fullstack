@@ -887,12 +887,8 @@ select:has(option[value=""]:checked) {
 }
 main h2 {
     font-size: 50px;
-<<<<<<< HEAD
-    background:  white;
-=======
     background:  #FCF6E3;
     background-clip: text;
->>>>>>> 260432782f8d0477fa32512f1e95352c7cae5f66
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -919,4 +915,17 @@ main h3 {
 .pourquoi {
     font-size: 30px;
     color:#FCF6E3
+}
+
+#index-body{
+    color:white
+}
+
+#index-body h2{
+    font-size: 30px;
+    color:#FCF6E3
+}
+
+#index-body p {
+    font-size: 18px;
 }
