@@ -15,7 +15,7 @@ body {
 *{
     box-sizing: border-box;
 }
- 
+
 #bandeau_onglets h5 a, div h4 a {
     text-decoration: none;
     color: white;
@@ -67,7 +67,7 @@ h5{
  
 #en_tete #connection {
     text-align: right;
-    margin-right: 20px;
+    margin-right: 0;
 }
  
 #bandeau_onglets{
@@ -127,9 +127,8 @@ h5{
 }
  
 .menu-container {
-    position: relative;
     display: inline-block;
-    margin-left: 15px;
+    height: 100%;
 }
  
 #logo_menu {
@@ -139,9 +138,9 @@ h5{
  
 #menu_deroulant {
     position: absolute;
-    top: 50px;
+    top: 0;
     left: 0;
-    width: 200px;
+    width: 20vh;
     background-color: #E8E8E8;
     border: 1px solid #2a2a2a;
     border-radius: 10px;
@@ -236,10 +235,9 @@ h5{
  
  
  
-/* ============================= */
-/* FORMULAIRES GÉNÉRAUX          */
-/* ============================= */
- 
+
+/* formulaire generaux         */
+
 .container {
     border: 1px solid #2a2a2a;
     border-radius: 20px;
@@ -254,6 +252,7 @@ h5{
     align-items: stretch;
     gap: 15px;
 }
+
  
 input,
 textarea,
@@ -274,13 +273,7 @@ select {
 /* CSS PAGE ADMIN_VIEW LOUIS */
 /* CSS PAGE ADMIN_VIEW LOUIS */
  
-/*
-   La page admin_view.php réutilise les classes de paiement.php :
-   .page_paiement, .page-paiement-contenu, .container_paiement,
-   .recapitulatif, .champ, .form-group, .form-row et #submit.
-   Ci-dessous : uniquement ce qui manque pour les select, textarea,
-   input file et le symbole € des prix.
-*/
+
  
 /* Select et zone de texte : même rendu que les input dans .form-group */
  
@@ -323,16 +316,29 @@ select {
  
 .recapitulatif .champ {
     margin: 0;
+    color:white;
 }
  
+
+input[type="date"], input[type="time"] {
+  color: white; 
+}
+
+
+/* changement couleur du select de type event dans admin_view.php */
+
+option[value=""],option[value="spectacle"],option[value="concert"] {
+  color: white;
+  background-color: rgba(85, 85, 85, 0.5);
+}
+
+select:has(option[value="spectacle"]:checked),
+select:has(option[value="concert"]:checked),
+select:has(option[value=""]:checked) {
+  color: white;
+}
  
- 
- 
- 
- 
- 
- 
- 
+
 /* CSS PAGE PAIEMENT LOUIS */
 /* CSS PAGE PAIEMENT LOUIS */
 /* CSS PAGE PAIEMENT LOUIS */
@@ -353,11 +359,12 @@ select {
  
 .page_paiement h1 {
     margin-bottom: 8px;
+    color:white;
 }
  
 .page_paiement p {
     margin-top: 0;
-    color: #555;
+    color:white;
 }
  
  
@@ -365,9 +372,7 @@ select {
  
  
 .page-paiement-contenu {
-    display: grid;
- 
-    
+    display: grid;  
     grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
  
     gap: 25px;
@@ -375,11 +380,31 @@ select {
     max-width: 1200px;
     margin: 30px auto 40px;
     align-items: start;
+    color:white;
 }
  
  
-/* BOÎTE INFORMATIONS PAIEMENT   */
+
+#profil {
+    justify-content: center;
+}
+
+.container {
+    min-width: 0;
+    width: 40vh;
+    padding: 25px;
+    justify-content: center;
  
+    border: 1px solid #2a2a2a;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    
+ 
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+}
  
 .container_paiement {
     min-width: 0;
@@ -389,7 +414,8 @@ select {
  
     border: 1px solid #2a2a2a;
     border-radius: 20px;
-    background-color: #fffdfd;
+    background-color: rgba(0, 0, 0, 0.5);
+    
  
     display: flex;
     flex-direction: column;
@@ -401,6 +427,7 @@ select {
 .recapitulatif h2 {
     margin-top: 0;
     font-size: 22px;
+    color:white;
 }
  
 /* Logos Visa et Mastercard */
@@ -447,7 +474,12 @@ select {
     min-width: 0;
     border: 1px solid #ccc;
     border-radius: 7px;
-    background-color: white;
+    background-color: rgb(208 208 208 / 50%);
+}
+
+::placeholder {
+    color:white;
+    opacity: 1;
 }
  
 .form-group:focus-within {
@@ -521,9 +553,9 @@ select {
     background-color: #E8E8E8;
 }
  
-/* ============================= */
-/* BOÎTE RÉCAPITULATIF            */
-/* ============================= */
+
+/* boite recap */
+
  
 .recapitulatif {
     min-width: 0;
@@ -533,7 +565,7 @@ select {
  
     border: 1px solid #2a2a2a;
     border-radius: 20px;
-    background-color: #fffdfd;
+    background-color: rgba(0, 0, 0, 0.5);
  
     display: flex;
     flex-direction: column;
@@ -576,7 +608,7 @@ select {
 .prix-total {
     padding: 15px;
     border-radius: 7px;
-    background-color: #FCF6E3;
+    background-color: white;
     color: #17191c;
 }
  
@@ -595,9 +627,9 @@ select {
     line-height: 1.5;
 }
  
-/* ============================= */
-/* TABLETTES ET PETITS ÉCRANS    */
-/* ============================= */
+
+/* ecrans reduit    */
+
  
 @media (max-width: 800px) {
  
@@ -612,9 +644,9 @@ select {
     }
 }
  
-/* ============================= */
-/* TÉLÉPHONES                    */
-/* ============================= */
+
+/* telephone  */
+
  
 @media (max-width: 480px) {
  
@@ -775,8 +807,7 @@ select {
     background-color: #eee;
 }
 
-/* ------------ */
-#profil { max-width: 520px; margin: 30px auto; padding: 0 15px; }
+
 
 .ligne-info {
     display: flex;
@@ -852,8 +883,12 @@ select {
 }
 main h2 {
     font-size: 50px;
+<<<<<<< HEAD
+    background:  white;
+=======
     background:  #FCF6E3;
     background-clip: text;
+>>>>>>> 260432782f8d0477fa32512f1e95352c7cae5f66
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
