@@ -921,3 +921,7 @@ main h3 {
     font-size: 30px;
     color:#FCF6E3
 }
+
+#index-body p {
+    font-size: 18px;
+}
