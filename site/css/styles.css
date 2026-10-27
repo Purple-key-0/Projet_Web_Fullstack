@@ -939,11 +939,16 @@ main h3 {
 #index-body p {
     font-size: 18px;
 }
-<<<<<<< HEAD
 
 #reserver-button {
     text-align:center;
     text-decoration: none;
 }
-=======
->>>>>>> c5bccb350f74dc8b0b92dcb15654a45c32497d7f
+
+#titre-event {
+    justify-content: center;  
+}
+
+#titre-event h1 {
+    text-align: center;
+}
