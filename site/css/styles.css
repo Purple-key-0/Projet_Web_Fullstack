@@ -853,6 +853,7 @@ select {
 main h2 {
     font-size: 50px;
     background:  #FCF6E3;
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -862,6 +863,13 @@ main h3 {
 
 .inscription{
     background:  #000000;
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+#bloc-generale{
+    border : 1px solid #FCF6E3;
+    padding: 20px;
+    border-radius: 10px;
 }
