@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $host = "sql7.freesqldatabase.com";
 $dbName = "sql7839244";
@@ -96,7 +97,7 @@ $link1 = new PDO("mysql:host=$host;dbname=$dbName", $user, $pass);
             </div>
 
             
-            <button type="submit" id="submit" name="submit">
+            <button type="submit" class="submit" name="submit">
                 Créer l'événement →
             </button>
 

@@ -9,21 +9,25 @@
 </head>
 <header id="en_tete">
     <div class="menu-container">
-    <img src="../assets/img/logo_menu.svg"
-         id="logo_menu"
-         alt="Ouvrir le menu"
-         onclick="toggleMenu()">
+        <img src="../assets/img/logo_menu.svg"
+            id="logo_menu"
+            alt="Ouvrir le menu"
+            onclick="toggleMenu()">
 
-    <div id="menu_deroulant" class="menu-cache">
-        <a href="index.php">Accueil</a>
-        <a href="profil.php">Mon Compte</a>
-        <a href="evenements.php">Événements</a>
-        <a href="reservations.php">Mes Réservations</a>
-        <?php if (isset($_SESSION['user']['roles']) && $_SESSION['user']['roles'] === '["ROLE_ADMIN"]' ):?>
-            <a href="admin_view.php">Gestion d'Événements</a>
-        <?php endif; ?>
+        <div id="menu_deroulant" class="menu-cache">
+            <img src="../assets/img/logo_menu.svg"
+            id="logo_menu"
+            alt="Ouvrir le menu"
+            onclick="toggleMenu()">
+            <a href="index.php">Accueil</a>
+            <a href="profil.php">Mon Compte</a>
+            <a href="evenements.php">Événements</a>
+            <a href="reservations.php">Mes Réservations</a>
+            <?php if (isset($_SESSION['user']['roles']) && $_SESSION['user']['roles'] === '["ROLE_ADMIN"]' ):?>
+                <a href="admin_view.php">Gestion d'Événements</a>
+            <?php endif; ?>
+        </div>
     </div>
-</div>
     <header id="titre_site"><h1 id="h1_titre_site">Whitelist</h1></header>
     <div><h4 id="connection">
         <?php if (!isset($_SESSION['user'])):?>

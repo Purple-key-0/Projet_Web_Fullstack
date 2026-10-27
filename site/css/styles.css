@@ -539,7 +539,7 @@ select:has(option[value=""]:checked) {
  
 /* Bouton payer */
  
-#submit {
+.submit {
     width: 100%;
     padding: 15px;
     border: none;
@@ -553,7 +553,7 @@ select:has(option[value=""]:checked) {
     transition: background-color 0.2s;
 }
  
-#submit:hover {
+.submit:hover {
     background-color: #E8E8E8;
 }
  
@@ -897,7 +897,7 @@ main h3 {
 }
 
 .inscription{
-    background:  #000000;
+    background: white;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -929,3 +929,4 @@ main h3 {
 #index-body p {
     font-size: 18px;
 }
+
