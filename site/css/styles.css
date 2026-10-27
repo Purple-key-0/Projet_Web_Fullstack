@@ -916,15 +916,6 @@ main h3 {
 }
 
 
-<<<<<<< HEAD   
-
-/* css pour les images des evenements dans evenements.php et seance.php */
-.image_evenement_ {
-    text-align: center;
-    margin-top: 15px;
-    width: 200px;
-    height: auto;
-=======
 .pourquoi {
     font-size: 30px;
     color:#FCF6E3
@@ -941,5 +932,12 @@ main h3 {
 
 #index-body p {
     font-size: 18px;
->>>>>>> 35e33836e4d783a982b664981d0ece715390550e
+}
+
+/* css pour les images des evenements dans evenements.php et seance.php */
+.image_evenement_ {
+    text-align: center;
+    margin-top: 15px;
+    width: 200px;
+    height: auto;
 }
