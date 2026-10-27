@@ -549,7 +549,7 @@ select:has(option[value=""]:checked) {
     border: none;
     border-radius: 7px;
     background-color: #202020;
-    color: white;
+    color: rgba(255, 255, 255, 0.842);
     font-family: inherit;
     font-size: 16px;
     font-weight: bold;
@@ -558,7 +558,7 @@ select:has(option[value=""]:checked) {
 }
  
 .submit:hover {
-    background-color: #E8E8E8;
+    background-color: #808080;
 }
  
 
