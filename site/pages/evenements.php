@@ -72,11 +72,7 @@ require __DIR__ . '/entete.php';
                     <?= htmlspecialchars($evenement['description_event'], ENT_QUOTES, 'UTF-8') ?>
                 </p>
                 <div class="image_evenement_">
-<<<<<<< HEAD
                     <img src="../assets/img/image_event_apres/<?=htmlspecialchars($evenement['id_event'], ENT_QUOTES, 'UTF-8')?>.jpg" alt="Image de l'événement">
-=======
-                    <img src="../image_event/<?= htmlspecialchars($evenement['id_event'], ENT_QUOTES, 'UTF-8') ?>.jpg" alt="Image de l'événement">
->>>>>>> a87d89e602be7b602e9ecac5af8fee70ab2f13e4
                 </div>
             </a>
         </section>
