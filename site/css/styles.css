@@ -19,7 +19,7 @@ input, textarea, select {
 *{
     box-sizing: border-box;
 }
- 
+
 #bandeau_onglets h5 a, div h4 a {
     text-decoration: none;
     color: white;
@@ -71,7 +71,7 @@ h5{
  
 #en_tete #connection {
     text-align: right;
-    margin-right: 20px;
+    margin-right: 0;
 }
  
 #bandeau_onglets{
@@ -131,9 +131,8 @@ h5{
 }
  
 .menu-container {
-    position: relative;
     display: inline-block;
-    margin-left: 15px;
+    height: 100%;
 }
  
 #logo_menu {
@@ -143,9 +142,9 @@ h5{
  
 #menu_deroulant {
     position: absolute;
-    top: 50px;
+    top: 0;
     left: 0;
-    width: 200px;
+    width: 20vh;
     background-color: #E8E8E8;
     border: 1px solid #2a2a2a;
     border-radius: 10px;
@@ -243,7 +242,6 @@ h5{
 
 /* formulaire generaux         */
 
- 
 .container {
     border: 1px solid #2a2a2a;
     border-radius: 20px;
@@ -390,8 +388,31 @@ select:has(option[value=""]:checked) {
 }
  
  
-/* BOÎTE INFORMATIONS PAIEMENT   */
+
+#profil {
+    justify-content: center;
+}
+
+.font-container {
+    color: white;
+}
+
+.container {
+    min-width: 0;
+    width: 80vh;
+    padding: 25px;
+    justify-content: center;
  
+    border: 1px solid #2a2a2a;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    
+ 
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+}
  
 .container_paiement {
     min-width: 0;
@@ -794,8 +815,7 @@ select:has(option[value=""]:checked) {
     background-color: #eee;
 }
 
-/* ------------ */
-#profil { max-width: 520px; margin: 30px auto; padding: 0 15px; }
+
 
 .ligne-info {
     display: flex;
@@ -871,12 +891,8 @@ select:has(option[value=""]:checked) {
 }
 main h2 {
     font-size: 50px;
-<<<<<<< HEAD
-    background:  white;
-=======
     background:  #FCF6E3;
     background-clip: text;
->>>>>>> 260432782f8d0477fa32512f1e95352c7cae5f66
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -900,6 +916,7 @@ main h3 {
 }
 
 
+<<<<<<< HEAD   
 
 /* css pour les images des evenements dans evenements.php et seance.php */
 .image_evenement_ {
@@ -907,4 +924,22 @@ main h3 {
     margin-top: 15px;
     width: 200px;
     height: auto;
+=======
+.pourquoi {
+    font-size: 30px;
+    color:#FCF6E3
+}
+
+#index-body{
+    color:white
+}
+
+#index-body h2{
+    font-size: 30px;
+    color:#FCF6E3
+}
+
+#index-body p {
+    font-size: 18px;
+>>>>>>> 35e33836e4d783a982b664981d0ece715390550e
 }
