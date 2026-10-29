@@ -23,8 +23,8 @@ require __DIR__ . '/entete.php';
 ?>
 
 <body>
-    <header> 
-        <h1>Événements</h1>
+    <header id="titre-event">
+        <h1 class="font-container">Nos Événements</h1>
     </header>
     <div class="rechercher">
         <input
@@ -56,27 +56,21 @@ require __DIR__ . '/entete.php';
     <?php foreach ($evenements as $evenement): ?>
         <section class="evenement" >
             <a href="seance.php?id_event=<?= (int) $evenement['id_event'] ?>" class="evenement-lien">
-                <h2 class="evenement-titre"><?= htmlspecialchars($evenement['nom_event'], ENT_QUOTES, 'UTF-8') ?></h2>
-
-                <p class="p_event">
-                    <?= htmlspecialchars($evenement['date_event'], ENT_QUOTES, 'UTF-8') ?>
-                    à <?= htmlspecialchars($evenement['heure_event'], ENT_QUOTES, 'UTF-8') ?>
-                </p>
-
-                <p class="p_event">
-                    Lieu : <?= htmlspecialchars($evenement['lieu_event'], ENT_QUOTES, 'UTF-8') ?>
-                </p>
-
-                <p class="p_event">
-                    Artiste : <?= htmlspecialchars($evenement['artiste_event'], ENT_QUOTES, 'UTF-8') ?>
-                </p>
-
-                <p class="p_event">
-                    <?= htmlspecialchars($evenement['description_event'], ENT_QUOTES, 'UTF-8') ?>
-                </p>
                 <div class="image_evenement_">
                     <img src="../assets/img/image_event_apres/<?=htmlspecialchars($evenement['id_event'], ENT_QUOTES, 'UTF-8')?>.jpg" alt="Image de l'événement">
                 </div>
+                <h2 class="evenement-titre"><?= htmlspecialchars($evenement['nom_event'], ENT_QUOTES, 'UTF-8') ?></h2>
+
+                <p class="p_event">
+                    Artiste : <?= htmlspecialchars($evenement['artiste_event'], ENT_QUOTES, 'UTF-8') ?>
+
+                <br>
+                
+                    <?= htmlspecialchars($evenement['date_event'], ENT_QUOTES, 'UTF-8') ?>
+                    à <?= htmlspecialchars($evenement['heure_event'], ENT_QUOTES, 'UTF-8') ?>
+                
+                </p>
+                
             </a>
         </section>
     <?php endforeach; ?>

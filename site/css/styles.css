@@ -852,50 +852,6 @@ select:has(option[value=""]:checked) {
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
-/* test*/
-.evenement {
-    max-width: 700px;
-    margin: 24px auto;
-    padding: 0; /* Le lien gère l'espacement */
-    background: #fff;
-    border: 1px solid #e5e5e5;
-    border-radius: 14px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-    overflow: hidden;
-}
-
-.evenement-lien {
-    display: block;
-    padding: 24px;
-    color: inherit;
-    text-decoration: none;
-}
-
-.evenement #evenement-titre {
-    margin: 0 0 16px;
-    color: #252525;
-    font-size: 1.5rem;
-}
-
-.evenement #p_event {
-    margin: 8px 0;
-    color: #555;
-    line-height: 1.5;
-}
-
-.evenement-lien:hover {
-    background-color: #f8f6fc;
-}
-
-@media (max-width: 600px) {
-    .evenement {
-        margin: 16px;
-    }
-
-    .evenement-lien {
-        padding: 18px;
-    }
-}
 main h2 {
     font-size: 50px;
     background:  #FCF6E3;
@@ -943,4 +899,223 @@ main h3 {
 #reserver-button {
     text-align:center;
     text-decoration: none;
+}
+
+#titre-event {
+    justify-content: center;  
+}
+
+#titre-event h1 {
+    text-align: center;
+}
+
+
+
+
+.evenement {
+    max-width: 700px;
+    margin: 24px auto;
+    padding: 0;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.evenement-lien {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    color: #252525;
+    text-decoration: none;
+}
+
+.evenement-lien:hover {
+    background-color: #f8f6fc;
+}
+
+.evenement-lien .image_evenement_ {
+    flex-shrink: 0;
+}
+
+.evenement-lien .image_evenement_ img {
+    display: block;
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.evenement-titre {
+    margin: 0 0 10px;
+    color: #252525;
+    font-size: 1.25rem;
+    text-align: left;
+}
+
+.evenement-lien .p_event {
+    margin: 0;
+    color: #555;
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+
+
+
+.container.container-evenement {
+    display: grid;
+    grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
+    align-items: start;
+    gap: 20px 30px;
+
+    width: 90%;
+    max-width: 1000px;
+    min-width: 0;
+    margin: 40px auto;
+    padding: 30px;
+
+    border: 1px solid #2a2a2a;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+/* Titre en haut, sur toute la largeur */
+.container-evenement .font-container {
+    grid-column: 1 / -1;
+    margin: 0 0 10px;
+    color: white;
+    font-size: 28px;
+    text-align: center;
+}
+
+/* Image à gauche */
+.container-evenement .image_evenement_ {
+    grid-column: 1;
+    grid-row: 2;
+    min-width: 0;
+}
+
+.container-evenement .image_evenement_ img {
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Informations à droite */
+.container-evenement .p_event {
+    grid-column: 2;
+    grid-row: 2;
+    margin: 0;
+    color: white;
+    font-size: 16px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+/* Bouton de réservation / formulaire d'annulation */
+.container-evenement #reserver-button,
+.container-evenement form {
+    grid-column: 1 / -1;
+    justify-self: center;
+}
+
+.container-evenement #reserver-button {
+    display: inline-block;
+    width: auto;
+    margin-top: 5px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 7px;
+    background-color: #202020;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.container-evenement #reserver-button:hover {
+    background-color: #808080;
+}
+
+.container-evenement form {
+    width: auto;
+    margin: 0;
+}
+
+.container-evenement form .submit {
+    width: auto;
+    margin-top: 5px;
+    padding: 12px 25px;
+}
+
+/* Mise en page sur tablette et téléphone */
+@media (max-width: 650px) {
+    .evenement-lien {
+        gap: 12px;
+        padding: 15px;
+    }
+
+    .evenement-lien .image_evenement_ img {
+        width: 100px;
+        height: 80px;
+    }
+
+    .evenement-titre {
+        font-size: 1.05rem;
+    }
+
+    .evenement-lien .p_event {
+        font-size: 13px;
+    }
+
+    .container.container-evenement {
+        grid-template-columns: minmax(0, 1fr);
+        width: calc(100% - 30px);
+        margin: 20px auto;
+        padding: 20px;
+        gap: 18px;
+    }
+
+    .container-evenement .font-container {
+        grid-column: 1;
+        font-size: 23px;
+    }
+
+    .container-evenement .image_evenement_ {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    .container-evenement .image_evenement_ img {
+        width: 100%;
+        height: auto;
+        max-height: 300px;
+        aspect-ratio: 4 / 3;
+    }
+
+    .container-evenement .p_event {
+        grid-column: 1;
+        grid-row: auto;
+        font-size: 15px;
+    }
+
+    .container-evenement #reserver-button,
+    .container-evenement form {
+        grid-column: 1;
+    }
+
+    .container-evenement #reserver-button,
+    .container-evenement form .submit {
+        max-width: 100%;
+    }
 }

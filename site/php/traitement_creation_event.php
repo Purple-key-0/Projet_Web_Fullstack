@@ -43,7 +43,8 @@ try {
 
     // Préparer la requête SQL
     $insertQuery = "INSERT INTO events (artiste_event, nom_event, lieu_event, description_event, type_event, date_event, heure_event, tarif_or, place_or, tarif_gradin, place_gradin, tarif_fosse, place_fosse)
-                    VALUES (:artiste, :nom_event, :lieu_event, :description_event, :type_event, :date_event, :heure_event, :prix_or, :place_or, :prix_gradin, :place_gradin, :prix_fosse, :place_fosse)";
+                    VALUES (:artiste, :nom_event, :lieu_event, :description_event, :type_event, :date_event, :heure_event, :prix_or, :place_or, :prix_gradin, :place_gradin, :prix_fosse, :place_fosse);
+                    UPDATE events SET total_places = place_or + place_gradin + place_fosse";
 
     $stmt1 = $link1->prepare($insertQuery);
 
@@ -85,7 +86,7 @@ if (
 
     $extension = strtolower(pathinfo($nom_original, PATHINFO_EXTENSION));
 
-    $extension_autorisees = ['jpg','jpeg','png','gif'];
+    $extension_autorisees = ['jpg','jpeg','png','gif','webp'];
 
     if(!in_array($extension, $extension_autorisees, true)){
         die("Extension non supportée");
