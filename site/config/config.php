@@ -1,6 +1,6 @@
 <?php
 $host = "sql7.freesqldatabase.com";
-$dbName = "sql7839244";
-$user = "sql7839244";
-$pass = "k4ySRIVWAK";
+$dbName = "sql7839609";
+$user = "sql7839609";
+$pass = "6sFeu67qrR";
 ?>
