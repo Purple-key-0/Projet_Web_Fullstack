@@ -1,12 +1,5 @@
 <?php
 session_start();
-<<<<<<< HEAD
-=======
-
-require __DIR__ . '/../config/config.php';
-
-session_start();
->>>>>>> 5ad9773e221de1b82ecb79f8b818299bbfdbdd7f
 require_once __DIR__ . '/../config/config.php';
 
 $host = "sql7.freesqldatabase.com";
