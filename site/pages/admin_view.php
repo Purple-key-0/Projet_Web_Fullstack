@@ -2,19 +2,17 @@
 session_start();
 
 
-require __DIR__ . '/../config/config.php';
+require __DIR__ . '/../config/auth.php';
+exigerAdmin();
 
-$host = "sql7.freesqldatabase.com";
-$dbName = "sql7839609";
-$user = "sql7839609";
-$pass = "6sFeu67qrR";
 
-// Connexion à la base de données MySQL
-$link1 = new PDO("mysql:host=$host;dbname=$dbName", $user, $pass);
-
+if (empty($_SESSION['csrf'])) {
+    $_SESSION['csrf'] = bin2hex(random_bytes(32));
+}
 ?>
 
 <?php require __DIR__ . '/entete.php'; ?>
+<body>
     
     <header class="page_paiement">
         <h1>Créer un événement</h1>
@@ -25,7 +23,8 @@ $link1 = new PDO("mysql:host=$host;dbname=$dbName", $user, $pass);
     <main class="infos_event_boite">
     <form id="event-form" class="page-paiement-contenu" action="../php/traitement_creation_event.php" method="post" enctype="multipart/form-data">
 
-        
+        <input type="hidden" name="csrf" value="<?= htmlspecialchars($_SESSION['csrf'], ENT_QUOTES, 'UTF-8') ?>">
+
         <section class="container_paiement">
 
             <h2>Informations de l'événement</h2>
@@ -95,7 +94,9 @@ $link1 = new PDO("mysql:host=$host;dbname=$dbName", $user, $pass);
             <div class="champ">
                 <label for="image">Image de l'événement</label>
                 <div class="form-group_image">
-                    <input type="file" id="image_event" name="image_event" required>
+                    <!-- accept : le navigateur ne propose que les images (confort).
+                         La vraie vérification se fait côté serveur. -->
+                    <input type="file" id="image_event" name="image_event" accept="image/jpeg,image/png,image/gif,image/webp" required>
                 </div>
             </div>
 

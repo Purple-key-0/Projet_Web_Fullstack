@@ -1,32 +1,22 @@
 <?php
 session_start();
-require __DIR__ . '/../config/config.php';
 
-// Connexion à la base de données MySQL
-$dbh = new PDO("mysql:host=$host;dbname=$dbName", $user, $pass);
-
-// Définition de la requête MySQL
-$query  = "SELECT last_name, first_name FROM user";
-
-// Envoi de la requête à la base de données et récupération des résultats de la requête
-$stt = $dbh->query($query);
-$result = $stt->fetchAll();
-
-$htmlTable = "";
-foreach ($result as $value) {
-    $htmlTable .= "<tr>";
-    $htmlTable .= "<td>{$value['last_name']}</td>";
-    $htmlTable .= "<td>{$value['first_name']}</td>";
-    $htmlTable .= "</tr>";
-}
 
 require __DIR__ . '/../config/auth.php';
 require __DIR__ . '/../config/db.php';
 exigerConnexion();
 
-$stmt = $dbh->prepare('SELECT first_name, last_name, email, birth_date FROM user WHERE id = ?');
+// L'identifiant vient de la session (jamais de l'URL) : on ne peut donc
+// afficher que SON propre profil.
+$stmt = $dbh->prepare('SELECT first_name, last_name, email, birthDate FROM user WHERE id_user = ?');
 $stmt->execute([$_SESSION['user']['id']]);
 $u = $stmt->fetch();
+
+
+if (!$u) {
+    header('Location: ../php/deconnexion.php');
+    exit;
+}
 
 $titrePage = 'Mon profil';
 
@@ -37,18 +27,18 @@ $titrePage = 'Mon profil';
     <section class="container">
         <div id="profil">
             <h1>Mon profil</h1>
-            <h2 class="font-container">Bonjour <?= htmlspecialchars($u['first_name'] . ' ' . $u['last_name']) ?></h2>
+            <h2 class="font-container">Bonjour <?= htmlspecialchars($u['first_name'] . ' ' . $u['last_name'], ENT_QUOTES, 'UTF-8') ?></h2>
 
             <h3 class="font-container">Mes informations :</h3>
 
             <div class="ligne-info">
-                <p class="font-container"><strong>Adresse e-mail :</strong> <span id="email-actuel"><?= htmlspecialchars($u['email']) ?></span></p>
+                <p class="font-container"><strong>Adresse e-mail :</strong> <span id="email-actuel"><?= htmlspecialchars($u['email'], ENT_QUOTES, 'UTF-8') ?></span></p>
                     <button type="button" style="background: #c0bfbf;"  onclick="afficherFormulaire('form-email')">Modifier l'e-mail</button>
             </div>
             <form id="form-email" class="form-profil form-cache">
                 <input type="email" name="email" placeholder="Nouvelle adresse e-mail" required>
                 <input type="password" name="mdp" placeholder="Mot de passe actuel (confirmation)" required>
-                <button type="submit" ; style="background: #c0bfbf;">Valider</button>
+                <button type="submit" style="background: #c0bfbf;">Valider</button>
                 <div class="message"></div>
             </form>
 
@@ -60,10 +50,13 @@ $titrePage = 'Mon profil';
                 <input type="password" name="ancien" placeholder="Ancien mot de passe" required>
                 <input type="password" name="nouveau" placeholder="Nouveau mot de passe (8 caractères min.)" minlength="8" required>
                 <input type="password" name="confirmation" placeholder="Confirmer le nouveau mot de passe" required>
-                <button type="submit"; style="background: #c0bfbf">Valider</button>
+                <button type="submit" style="background: #c0bfbf">Valider</button>
                 <div class="message"></div>
             </form>
-        </main>
+    
+        </div>
+    </section>
+</div>
     <script>
         function afficherFormulaire(id) {
         document.getElementById(id).classList.toggle('form-cache');

@@ -20,13 +20,13 @@ $confirmation = $_POST['confirmation'] ?? '';
 if ($nouveau !== $confirmation) repondre(false, 'Les mots de passe ne correspondent pas', 400);
 if (strlen($nouveau) < 8)       repondre(false, 'Minimum 8 caractères', 400);
 
-$stmt = $dbh->prepare('SELECT password FROM user WHERE id = ?');
+$stmt = $dbh->prepare('SELECT password FROM user WHERE id_user = ?');
 $stmt->execute([$id]);
 $hash = $stmt->fetchColumn();
 
 if (!$hash || !password_verify($ancien, $hash)) repondre(false, 'Ancien mot de passe incorrect', 403);
 
-$stmt = $dbh->prepare('UPDATE user SET password = ? WHERE id = ?');
+$stmt = $dbh->prepare('UPDATE user SET password = ? WHERE id_user = ?');
 $stmt->execute([password_hash($nouveau, PASSWORD_DEFAULT), $id]);
 
 repondre(true, 'Mot de passe modifié avec succès');

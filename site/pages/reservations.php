@@ -5,7 +5,15 @@ require_once __DIR__ . '/../config/config.php';
 $id_user = $_SESSION['user']['id'] ?? null;
 
 if (!$id_user) {
-    exit('Vous devez être connecté.');
+    header('Location: ../pages/connexion.php');
+    exit;
+}
+
+
+function imageEvenement(int $id): ?string {
+    $dossier  = __DIR__ . '/../assets/img/image_event_apres/';
+    $fichiers = glob($dossier . $id . '.*');
+    return $fichiers ? basename($fichiers[0]) : null;
 }
 
 try {
@@ -26,6 +34,7 @@ try {
     $requete->execute([$id_user]);
     $evenements = $requete->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
+    error_log($e->getMessage());
     die('Impossible de récupérer les événements.');
 }
 
@@ -45,7 +54,7 @@ require __DIR__ . '/entete.php';
             <?php foreach ($evenements as $evenement): ?>
                 <li>
                     <a
-                        href="seance.php?nom=<?= urlencode($evenement['nom_event']) ?>"
+                        href="seance.php?id_event=<?= (int) $evenement['id_event'] ?>"
                         data-mots-cles="<?= htmlspecialchars(
                             ($evenement['artiste_event'] ?? '') . ' ' .
                             ($evenement['type_event'] ?? ''),
@@ -81,11 +90,15 @@ require __DIR__ . '/entete.php';
                 <p class="p_event">
                     <?= htmlspecialchars($evenement['description_event'], ENT_QUOTES, 'UTF-8') ?>
                 </p>
-                <div class="image_evenement_">
-                    <img src="../assets/img/image_event_apres/<?=htmlspecialchars($evenement['id_event'], ENT_QUOTES, 'UTF-8')?>.jpg" alt="Image de l'événement">
-                </div>
+                <?php $image = imageEvenement((int) $evenement['id_event']); ?>
+                <?php if ($image): ?>
+                    <div class="image_evenement_">
+                        <img src="../assets/img/image_event_apres/<?= htmlspecialchars($image, ENT_QUOTES, 'UTF-8') ?>" alt="Image de l'événement">
+                    </div>
+                <?php endif; ?>
             </a>
         </section>
     <?php endforeach; ?>
+    <script src="../js/evenements.js"></script>
 </body>
 </html>

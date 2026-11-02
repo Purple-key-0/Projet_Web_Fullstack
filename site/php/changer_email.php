@@ -12,22 +12,24 @@ function repondre(bool $succes, string $message, int $code = 200): void {
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') repondre(false, 'Méthode non autorisée', 405);
 if (!estConnecte())                        repondre(false, 'Vous devez être connecté', 401);
 
+
 $id    = $_SESSION['user']['id'];
 $email = trim($_POST['email'] ?? '');
 $mdp   = $_POST['mdp'] ?? '';
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) repondre(false, 'Adresse e-mail invalide', 400);
 
-$stmt = $dbh->prepare('SELECT password FROM user WHERE id = ?');
+$stmt = $dbh->prepare('SELECT password FROM user WHERE id_user = ?');
 $stmt->execute([$id]);
 $hash = $stmt->fetchColumn();
 if (!$hash || !password_verify($mdp, $hash)) repondre(false, 'Mot de passe incorrect', 403);
 
-$stmt = $dbh->prepare('SELECT COUNT(*) FROM user WHERE email = ? AND id <> ?');
+// Un autre compte utilise-t-il déjà cette adresse ? (id_user <> ? = "un autre que moi")
+$stmt = $dbh->prepare('SELECT COUNT(*) FROM user WHERE email = ? AND id_user <> ?');
 $stmt->execute([$email, $id]);
 if ($stmt->fetchColumn() > 0) repondre(false, 'Cette adresse est déjà utilisée', 409);
 
-$stmt = $dbh->prepare('UPDATE user SET email = ? WHERE id = ?');
+$stmt = $dbh->prepare('UPDATE user SET email = ? WHERE id_user = ?');
 $stmt->execute([$email, $id]);
 
 repondre(true, 'Adresse e-mail modifiée');

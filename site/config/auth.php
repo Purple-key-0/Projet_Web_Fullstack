@@ -8,7 +8,20 @@ function estConnecte(): bool {
 }
 
 function estAdmin(): bool {
-    $roles = json_decode($_SESSION['user']['roles'] ?? '[]', true) ?: [];
+    $valeur = (string) ($_SESSION['user']['roles'] ?? '');
+
+    // Cas 1 : le rôle est stocké en JSON, par exemple ["ROLE_ADMIN"].
+    // json_decode() le transforme en tableau PHP.
+    $roles = json_decode($valeur, true);
+
+    // Cas 2 : le rôle est un simple texte, par exemple ROLE_ADMIN
+    // (json_decode ne donne alors pas de tableau).
+    if (is_string($roles)) {
+        $roles = [$roles];
+    } elseif (!is_array($roles)) {
+        $roles = [$valeur];
+    }
+
     return in_array('ROLE_ADMIN', $roles, true);
 }
 

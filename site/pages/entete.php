@@ -1,3 +1,7 @@
+<?php
+
+require_once __DIR__ . '/../config/auth.php';
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -23,14 +27,14 @@
             <a href="profil.php">Mon Compte</a>
             <a href="evenements.php">Événements</a>
             <a href="reservations.php">Mes Réservations</a>
-            <?php if (isset($_SESSION['user']['roles']) && $_SESSION['user']['roles'] === '["ROLE_ADMIN"]' ):?>
+            <?php if (estAdmin()): ?>
                 <a href="admin_view.php">Gestion d'Événements</a>
             <?php endif; ?>
         </div>
     </div>
     <header id="titre_site"><h1 id="h1_titre_site">Whitelist</h1></header>
     <div><h4 id="connection">
-        <?php if (!isset($_SESSION['user'])):?>
+        <?php if (!estConnecte()): ?>
             <a href="connexion.php">Se connecter</a>
         <?php else: ?>
             <a href="../php/deconnexion.php">Se déconnecter</a>

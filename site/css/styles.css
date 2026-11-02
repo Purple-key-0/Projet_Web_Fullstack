@@ -1120,3 +1120,9 @@ main h3 {
         max-width: 100%;
     }
 }
+
+
+
+.container-evenement .font-container + .p_event {
+    grid-column: 1 / -1;
+}
