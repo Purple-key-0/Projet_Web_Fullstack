@@ -98,8 +98,9 @@ h5{
     position: relative;
     width: 350px;
 }
- 
-#barre-de-recherche {
+
+
+.barre-de-recherche {
     background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
     padding: 10px;
@@ -840,7 +841,9 @@ main h3 {
 }
 
 
-
+#select-role {
+    color: black;
+}
 
 .evenement {
     max-width: 700px;

@@ -39,7 +39,7 @@ require __DIR__ . '/entete.php';
     <div class="rechercher">
         <input
             type="search"
-            id="barre-de-recherche"
+            class="barre-de-recherche"
             placeholder="Rechercher un événement"
             autocomplete="off"
         >

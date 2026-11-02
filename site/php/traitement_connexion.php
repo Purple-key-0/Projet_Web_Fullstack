@@ -32,8 +32,8 @@ if ($result && password_verify($password, $result['password'])) {
         'last_name' => $result['last_name'],
         'roles' => $result['roles'],
     ];
-
     header('Location: ../pages/index.php');
+    $dbh->prepare('UPDATE users SET derniere_connexion = NOW() WHERE id_user = ?')->execute([$result['id']]);
     exit;
 }
 

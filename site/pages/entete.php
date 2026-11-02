@@ -29,6 +29,7 @@ require_once __DIR__ . '/../config/auth.php';
             <a href="reservations.php">Mes Réservations</a>
             <?php if (estAdmin()): ?>
                 <a href="admin_view.php">Gestion d'Événements</a>
+                <a href="gestion_users.php">Gestion des Utilisateurs</a>
             <?php endif; ?>
         </div>
     </div>
