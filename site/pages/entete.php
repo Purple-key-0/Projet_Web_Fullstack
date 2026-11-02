@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whitelist :)</title>
+    <title>Whitelist</title>
     <link rel="stylesheet" href="../css/styles.css">
     <script src="../js/menu.js"></script>
 </head>
@@ -22,7 +22,9 @@
             <a href="index.php">Accueil</a>
             <a href="profil.php">Mon Compte</a>
             <a href="evenements.php">Événements</a>
-            <a href="reservations.php">Mes Réservations</a>
+            <?php if (isset($_SESSION['user']['roles'])): ?>
+                <a href="reservations.php">Mes Réservations</a>
+            <?php endif; ?>
             <?php if (isset($_SESSION['user']['roles']) && $_SESSION['user']['roles'] === '["ROLE_ADMIN"]' ):?>
                 <a href="admin_view.php">Gestion d'Événements</a>
             <?php endif; ?>

@@ -5,7 +5,7 @@ require __DIR__ . '/../config/config.php';
 
 // Connexion à la base de données MySQL
 $dbh = new PDO("mysql:host=$host;dbname=$dbName", $user, $pass);
-$id_user = $_SESSION['user']['id'];
+$id_user = $_SESSION['user']['id_user'] ?? null;
 
 $id = filter_input(INPUT_GET, 'id_event', FILTER_VALIDATE_INT);
 
@@ -34,13 +34,21 @@ if (!$evenement) {
     http_response_code(404);
     exit('Événement introuvable.');
 }
+if ($id_user !== null) {
 
-$check = $pdo->prepare(
-    'SELECT 1 FROM user_event WHERE user_id = ? AND event_id = ?'
-);
-$check->execute([$id_user, $evenement['id_event']]);
+    $check = $pdo->prepare(
+        'SELECT 1 FROM user_event WHERE user_id = ? AND event_id = ?'
+    );
 
-$dejaInscrit = (bool) $check->fetchColumn();
+    $check->execute([$id_user, $evenement['id_event']]);
+
+    $dejaInscrit = (bool) $check->fetchColumn();
+
+} 
+
+else {
+    $dejaInscrit = false;
+}
 
 ?>
 
@@ -69,17 +77,18 @@ $dejaInscrit = (bool) $check->fetchColumn();
                    Total des places : <?= htmlspecialchars($evenement['total_places'], ENT_QUOTES, 'UTF-8') ?>
                 </p>
                 
-                <?php if (!$dejaInscrit): ?>
+                <?php if (!$dejaInscrit && isset($_SESSION['user'])): ?>
                     <a href="paiement.php?id_event=<?= (int) $evenement['id_event'] ?>" class="submit" id="reserver-button">
                         Réserver ma place !
                     </a>
-                <?php else: ?>
-                    <form action="../php/desinscription_event.php" method="post">
-                        <input type="hidden" name="id_event" value="<?= htmlspecialchars($evenement['id_event'], ENT_QUOTES, 'UTF-8') ?>">
-                        <button type="submit" class="submit" name="submit">
-                            Annuler ma réservation
-                        </button>
-                    </form>
+                <?php elseif (!isset($_SESSION['user'])): ?>
+                    <?php else:?>
+                        <form action="../php/desinscription_event.php" method="post">
+                            <input type="hidden" name="id_event" value="<?= htmlspecialchars($evenement['id_event'], ENT_QUOTES, 'UTF-8') ?>">
+                            <button type="submit" class="submit" name="submit">
+                                Annuler ma réservation
+                            </button>
+                        </form>
                 <?php endif; ?>
 
     </section>

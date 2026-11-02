@@ -13,7 +13,7 @@ $dbh = new PDO(
 );
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$query = 'SELECT id, first_name, last_name, password, roles
+$query = 'SELECT id_user, first_name, last_name, password, role
           FROM user
           WHERE email = :email';
 
@@ -25,23 +25,23 @@ if ($result && password_verify($password, $result['password'])) {
     session_regenerate_id(true);
 
     $_SESSION['user'] = [
-        'id' => $result['id'],
+        'id' => $result['id_user'],
         'first_name' => $result['first_name'],
         'last_name' => $result['last_name'],
-        'roles' => $result['roles'],
+        'roles' => $result['role'],
     ];
 
     header('Location: ../pages/index.php');
     exit;
-}
+} 
 
-header('Location: ../pages/connexion.php?erreur=1');
-exit;
+else {
+    header('Location: ../pages/connexion.php?erreur=1');
+    exit;
+}
 
 $email = $_POST['email'];
 $password = $_POST['password'];
-
-require __DIR__ . '/../config/config.php';
 
 // Connexion à la base de données MySQL
 $dbh = new PDO("mysql:host=$host;dbname=$dbName", $user, $pass);

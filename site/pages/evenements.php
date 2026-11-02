@@ -23,7 +23,7 @@ require __DIR__ . '/entete.php';
 ?>
 
 <body>
-    <header id="titre-event">
+    <header class="titre-event">
         <h1 class="font-container">Nos Événements</h1>
     </header>
     <div class="rechercher">

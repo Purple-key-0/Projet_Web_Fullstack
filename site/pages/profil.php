@@ -24,7 +24,7 @@ require __DIR__ . '/../config/auth.php';
 require __DIR__ . '/../config/db.php';
 exigerConnexion();
 
-$stmt = $dbh->prepare('SELECT first_name, last_name, email, birth_date FROM user WHERE id = ?');
+$stmt = $dbh->prepare('SELECT first_name, last_name, email, birthDate FROM user WHERE id_user = ?');
 $stmt->execute([$_SESSION['user']['id']]);
 $u = $stmt->fetch();
 
