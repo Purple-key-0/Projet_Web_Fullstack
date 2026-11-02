@@ -141,6 +141,9 @@ if (move_uploaded_file($image['tmp'], $dossier_avant . $nouveau_nom)) {
     } else {
         echo "L'image originale est enregistrée, mais la copie a échoué.";
     }
-} else {
+} 
+else {
     echo "Erreur lors de l'enregistrement de l'image originale";
 }
+sleep(2);
+header('Location: ../pages/evenements.php');

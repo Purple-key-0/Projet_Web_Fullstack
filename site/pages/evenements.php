@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once __DIR__ . '/../config/auth.php';
 require_once __DIR__ . '/../config/config.php';
 
 function imageEvenement(int $id): ?string {
@@ -23,7 +24,9 @@ try {
     error_log($e->getMessage());
     die('Impossible de récupérer les événements.');
 }
-
+if (empty($_SESSION['csrf'])) {
+    $_SESSION['csrf'] = bin2hex(random_bytes(32));
+}
 require __DIR__ . '/entete.php';
 
 
@@ -82,6 +85,17 @@ require __DIR__ . '/entete.php';
                 </p>
                 
             </a>
+            <?php if (estAdmin()):?>
+                <div class="evenement-actions">
+                    <a href="admin_view.php?id_event=<?= (int) $evenement['id_event'] ?>" class="btn-modifier">Modifier</a>
+
+                    <form action="../php/traitement_suppression_event.php" method="post"onsubmit="return confirm('Supprimer cet événement ?');" style="display:inline">
+                        <input type="hidden" name="csrf" value="<?= htmlspecialchars($_SESSION['csrf'], ENT_QUOTES, 'UTF-8') ?>">
+                        <input type="hidden" name="id_event" value="<?= (int) $evenement['id_event'] ?>">
+                        <button type="submit" class="btn-supprimer">Supprimer</button>
+                    </form>
+                </div>
+            <?php endif; ?>
         </section>
     <?php endforeach; ?>
     <script src="../js/evenements.js"></script>
