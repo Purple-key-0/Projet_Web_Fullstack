@@ -198,54 +198,6 @@ h5{
  
  
  
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
- 
- 
  
 
 /* formulaire generaux         */
@@ -274,16 +226,6 @@ select {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
- 
- 
-/* CSS PAGE ADMIN_VIEW LOUIS */
-/* CSS PAGE ADMIN_VIEW LOUIS */
-/* CSS PAGE ADMIN_VIEW LOUIS */
-/* CSS PAGE ADMIN_VIEW LOUIS */
-/* CSS PAGE ADMIN_VIEW LOUIS */
-/* CSS PAGE ADMIN_VIEW LOUIS */
-/* CSS PAGE ADMIN_VIEW LOUIS */
-/* CSS PAGE ADMIN_VIEW LOUIS */
  
 
  
@@ -349,19 +291,6 @@ select:has(option[value="concert"]:checked),
 select:has(option[value=""]:checked) {
   color: white;
 }
- 
-
-/* CSS PAGE PAIEMENT LOUIS */
-/* CSS PAGE PAIEMENT LOUIS */
-/* CSS PAGE PAIEMENT LOUIS */
-/* CSS PAGE PAIEMENT LOUIS */
-/* CSS PAGE PAIEMENT LOUIS */
-/* CSS PAGE PAIEMENT LOUIS */
-/* CSS PAGE PAIEMENT LOUIS */
-/* CSS PAGE PAIEMENT LOUIS */
-/* CSS PAGE PAIEMENT LOUIS */
-/* CSS PAGE PAIEMENT LOUIS */
-/* CSS PAGE PAIEMENT LOUIS */
  
 .page_paiement {
     width: 90%;
@@ -902,11 +831,11 @@ main h3 {
     text-decoration: none;
 }
 
-#titre-event {
+.titre-event {
     justify-content: center;  
 }
 
-#titre-event h1 {
+.titre-event h1 {
     text-align: center;
 }
 
