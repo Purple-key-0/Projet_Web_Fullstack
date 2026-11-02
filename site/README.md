@@ -56,7 +56,7 @@ Il sert également à s'exercer à l'organisation d'une interface avec HTML, CSS
 
 ├─── /user		#informations sur les utilisateurs
 
-└─── /user\_event	#relation entre les deux tables
+└─── /user_event	#relation entre les deux tables
 
 
 
@@ -68,6 +68,6 @@ Il sert également à s'exercer à l'organisation d'une interface avec HTML, CSS
 
 Pour accéder au site, il est nécessaire de lancer le serveur Apache depuis votre XAMPP Control Panel.
 
-Il également télécharger le dossier contenant le site.
+Il faut également télécharger le dossier contenant le site.
 Dans votre navigateur, rentrer l'url suivante : http://localhost/Projet\_Web\_Fullstack/site/pages/index.php.
 
