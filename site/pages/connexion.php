@@ -27,4 +27,11 @@ session_start();
         </form>
     </section>
 </body>
+<?php if (isset($_GET['erreur']) && $_GET['erreur'] == 1): ?>
+
+<script>
+    alert("Identifiant ou mot de passe incorrect !");
+</script>
+
+<?php endif; ?>
 </html>

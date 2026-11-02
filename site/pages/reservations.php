@@ -42,6 +42,9 @@ require __DIR__ . '/entete.php';
 ?>
 
 <body>
+    <header class="titre-event">
+        <h1 class="font-container">Mes Réservations</h1>
+    </header>
     <div class="rechercher">
         <input
             type="search"

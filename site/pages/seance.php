@@ -41,27 +41,23 @@ try {
     $requete->execute(['id' => $id]);
     $evenement = $requete->fetch(PDO::FETCH_ASSOC);
 
-    if (!$evenement) {
-        http_response_code(404);
-        exit('Événement introuvable.');
-    }
-
-    
-    $dejaInscrit = false;
-    if ($id_user) {
-        $check = $pdo->prepare(
-            'SELECT 1 FROM user_event WHERE user_id = ? AND event_id = ?'
-        );
-        $check->execute([$id_user, $evenement['id_event']]);
-        $dejaInscrit = (bool) $check->fetchColumn();
-    }
-} catch (PDOException $e) {
-    error_log($e->getMessage());
-    http_response_code(500);
-    exit('Erreur lors de la récupération de l’événement.');
+if (!$evenement) {
+    http_response_code(404);
+    exit('Événement introuvable.');
 }
 
-$image = imageEvenement((int) $evenement['id_event']);
+$check = $pdo->prepare(
+    'SELECT 1 FROM user_event WHERE user_id = ? AND event_id = ?'
+);
+$check->execute([$id_user, $evenement['id_event']]);
+
+$dejaInscrit = (bool) $check->fetchColumn();
+
+} 
+
+else {
+    $dejaInscrit = false;
+}
 
 ?>
 
@@ -92,14 +88,13 @@ $image = imageEvenement((int) $evenement['id_event']);
                    Total des places : <?= h($evenement['total_places']) ?>
                 </p>
                 
-                <?php if (!$dejaInscrit): ?>
+                <?php if (!$dejaInscrit && isset($_SESSION['user'])): ?>
                     <a href="paiement.php?id_event=<?= (int) $evenement['id_event'] ?>" class="submit" id="reserver-button">
                         Réserver ma place !
                     </a>
                 <?php else: ?>
                     <form action="../php/desinscription_event.php" method="post">
-                        <input type="hidden" name="id_event" value="<?= h($evenement['id_event']) ?>">
-                        <input type="hidden" name="csrf" value="<?= h($_SESSION['csrf']) ?>">
+                        <input type="hidden" name="id_event" value="<?= htmlspecialchars($evenement['id_event'], ENT_QUOTES, 'UTF-8') ?>">
                         <button type="submit" class="submit" name="submit">
                             Annuler ma réservation
                         </button>
