@@ -84,7 +84,7 @@ $image = imageEvenement((int) $evenement['id_event']);
                     <?= h($evenement['date_event']) ?>
                     
                     à <?= h($evenement['heure_event']) ?>  
-
+                <br>
                     Lieu : <?= h($evenement['lieu_event']) ?>
                 <br>
                     Artiste : <?= h($evenement['artiste_event']) ?>
