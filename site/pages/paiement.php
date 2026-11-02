@@ -2,36 +2,24 @@
 session_start();
 require __DIR__ . '/../config/config.php';
 
-// ---------------------------------------------------------------
-// Il faut être connecté pour accéder au paiement.
-// Avant, $_SESSION['user']['id'] était lu sans vérification :
-// un visiteur non connecté provoquait une erreur.
-// ---------------------------------------------------------------
+
 if (!isset($_SESSION['user']['id'])) {
     header('Location: connexion.php');
     exit;
 }
 $id_user = (int) $_SESSION['user']['id'];
 
-// ---------------------------------------------------------------
-// Jeton CSRF : un texte aléatoire, créé une fois par session.
-// Il est placé dans le formulaire (champ caché plus bas) et
-// vérifié par inscription_event.php.
-// random_bytes() génère des octets aléatoires sûrs pour la sécurité,
-// bin2hex() les transforme en texte lisible.
-// ---------------------------------------------------------------
+
 if (empty($_SESSION['csrf'])) {
     $_SESSION['csrf'] = bin2hex(random_bytes(32));
 }
 
-// Petite fonction pour écrire moins de code : elle "échappe" un texte
-// avant de l'afficher (< devient &lt; etc.), ce qui empêche le XSS.
+
 function h($valeur): string {
     return htmlspecialchars((string) $valeur, ENT_QUOTES, 'UTF-8');
 }
 
-// L'identifiant de l'événement vient de l'URL (?id_event=3).
-// FILTER_VALIDATE_INT renvoie false si ce n'est pas un entier.
+
 $id = filter_input(INPUT_GET, 'id_event', FILTER_VALIDATE_INT);
 
 if (!$id) {
@@ -40,8 +28,7 @@ if (!$id) {
 }
 
 try {
-    // Une seule connexion (avant, il y en avait deux, dont une inutilisée
-    // et sans gestion des erreurs).
+    
     $pdo = new PDO(
         "mysql:host=$host;dbname=$dbName;charset=utf8mb4",
         $user,
@@ -58,8 +45,7 @@ try {
         exit('Événement introuvable.');
     }
 
-    // L'utilisateur est-il déjà inscrit ? Cette requête est maintenant
-    // dans le try : une erreur SQL est attrapée au lieu de planter la page.
+   
     $check = $pdo->prepare(
         'SELECT 1 FROM user_event WHERE user_id = ? AND event_id = ?'
     );
@@ -104,13 +90,7 @@ try {
 
             <form action="../php/inscription_event.php" method="post">
 
-                <?php /*
-                    Les champs de carte bancaire n'ont plus d'attribut "name".
-                    Un champ sans "name" n'est pas envoyé au serveur : les
-                    données de carte ne quittent jamais le navigateur.
-                    Le "required" et les "id" fonctionnent toujours.
-                    (Le paiement est une simulation dans ce projet.)
-                */ ?>
+                
 
                 <!-- Numéro de carte -->
                 <div class="champ">
@@ -240,10 +220,7 @@ try {
                     <?= h($evenement['lieu_event']) ?>
                 </p>
 
-                <!-- À FAIRE : nombre de places et prix encore fixes.
-                     Pour les calculer, il faut savoir quelle catégorie
-                     (carré or, gradins, fosse) et combien de places l'utilisateur
-                     a choisi, puis lire les tarifs dans la table events. -->
+                <!-- À FAIRE : nombre de places et prix encore fixes.-->
                 <p>
                     <strong>Nombre de places :</strong>
                     2

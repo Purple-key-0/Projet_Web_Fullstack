@@ -20,6 +20,7 @@ if (empty($_SESSION['csrf'])) {
     $_SESSION['csrf'] = bin2hex(random_bytes(32));
 }
 
+
 $id_user = $_SESSION['user']['id'] ?? null;
 
 $id = filter_input(INPUT_GET, 'id_event', FILTER_VALIDATE_INT);
@@ -30,7 +31,7 @@ if (!$id) {
 }
 
 try {
-    
+
     $pdo = new PDO(
         "mysql:host=$host;dbname=$dbName;charset=utf8mb4",
         $user,

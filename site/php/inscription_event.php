@@ -1,16 +1,16 @@
 <?php
-// session_start() : permet de retrouver l'utilisateur connecté ($_SESSION)
+
 session_start();
 
-// Charge $host, $dbName, $user, $pass (identifiants de la base de données)
+
 require __DIR__ . '/../config/config.php';
+
 
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_SESSION['user']['id'])) {
     header('Location: ../pages/connexion.php');
     exit;
 }
-
 
 $jeton_session    = $_SESSION['csrf'] ?? '';
 $jeton_formulaire = $_POST['csrf'] ?? '';
@@ -24,6 +24,7 @@ if (
     exit('Requête refusée');
 }
 
+
 $id_user  = (int) $_SESSION['user']['id'];
 $id_event = filter_input(INPUT_POST, 'id_event', FILTER_VALIDATE_INT);
 
@@ -33,7 +34,7 @@ if (!$id_event) {
 }
 
 try {
-  
+
     $dbh = new PDO(
         "mysql:host=$host;dbname=$dbName;charset=utf8mb4",
         $user,
@@ -41,7 +42,6 @@ try {
         [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
     );
 
- 
     $stmt = $dbh->prepare('SELECT COUNT(*) FROM events WHERE id_event = ?');
     $stmt->execute([$id_event]);
     if ($stmt->fetchColumn() == 0) {
@@ -62,7 +62,7 @@ try {
         $stmt->execute([$id_user, $id_event]);
     }
 } catch (PDOException $e) {
-    
+
     error_log($e->getMessage());
     http_response_code(500);
     exit('Une erreur est survenue');
