@@ -2,7 +2,7 @@ html, body {
     margin: 0;
     padding: 0;
 }
- 
+
 body {
     min-height: 100vh;
     background:
@@ -37,7 +37,6 @@ h5{
 }
  
 #en_tete {
-
     margin: 0;
     display: flex;
     align-items: right;
@@ -198,57 +197,7 @@ h5{
  
  
  
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
-/* LOUIS*/
- 
- 
- 
- 
 
-/* formulaire generaux         */
 
 .container {
     border: 1px solid #2a2a2a;
@@ -902,11 +851,11 @@ main h3 {
     text-decoration: none;
 }
 
-#titre-event {
+.titre-event {
     justify-content: center;  
 }
 
-#titre-event h1 {
+.titre-event h1 {
     text-align: center;
 }
 
@@ -1119,4 +1068,10 @@ main h3 {
     .container-evenement form .submit {
         max-width: 100%;
     }
+}
+
+
+
+.container-evenement .font-container + .p_event {
+    grid-column: 1 / -1;
 }
