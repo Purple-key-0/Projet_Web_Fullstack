@@ -52,7 +52,7 @@ try {
     ]);
 
  
-    header('Location: ../pages/index.php');
+    header('Location: ../pages/connexion.php');
     exit;
 } catch (PDOException $e) {
     error_log($e->getMessage());
