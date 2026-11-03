@@ -1051,3 +1051,8 @@ main h3 {
 .container-evenement .font-container + .p_event {
     grid-column: 1 / -1;
 }
+
+.container #profil #form-mdp input::placeholder, .container #profil #form-email input::placeholder {
+    color: black;
+    opacity: 1;
+}

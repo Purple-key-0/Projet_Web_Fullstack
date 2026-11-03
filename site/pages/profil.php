@@ -34,8 +34,8 @@ $titrePage = 'Mon profil';
                     <button type="button" style="background: #c0bfbf;"  onclick="afficherFormulaire('form-email')">Modifier l'e-mail</button>
             </div>
             <form id="form-email" class="form-profil form-cache">
-                <input type="email" name="email" placeholder="Nouvelle adresse e-mail" required>
-                <input type="password" name="mdp" placeholder="Mot de passe actuel (confirmation)" required>
+                <input type="email" name="email" placeholder="Nouvelle adresse e-mail" alt="Nouvelle adresse e-mail" required>
+                <input type="password" name="mdp" placeholder="Mot de passe actuel (confirmation)" alt = "Mot de passe actuel" required>
                 <button type="submit" style="background: #c0bfbf;">Valider</button>
                 <div class="message"></div>
             </form>
@@ -45,9 +45,9 @@ $titrePage = 'Mon profil';
                     <button type="button" style="background: #c0bfbf;" onclick="afficherFormulaire('form-mdp')">Modifier le mot de passe</button>
             </div>
             <form id="form-mdp" class="form-profil form-cache">
-                <input type="password" name="ancien" placeholder="Ancien mot de passe" required>
-                <input type="password" name="nouveau" placeholder="Nouveau mot de passe (8 caractères min.)" minlength="8" required>
-                <input type="password" name="confirmation" placeholder="Confirmer le nouveau mot de passe" required>
+                <input type="password" name="ancien" placeholder="Ancien mot de passe" alt = "Mot de passe actuel" required>
+                <input type="password" name="nouveau" placeholder="Nouveau mot de passe (8 caractères min.)" minlength="8" alt = "Nouveau mot de passe" required>
+                <input type="password" name="confirmation" placeholder="Confirmer le nouveau mot de passe" alt = "Confirmation du mot de passe" required>
                 <button type="submit" style="background: #c0bfbf">Valider</button>
                 <div class="message"></div>
             </form>
