@@ -10,7 +10,7 @@
 
 Ce projet consiste en la création d'un site web interactif permettant de réserver une place pour un événement de son choix.
 
-Il sert également à s'exercer à l'organisation d'une interface avec HTML, CSS, JavaScript
+Il sert également à s'exercer à l'organisation d'une interface avec PHP, CSS, JavaScript
 
 
 
@@ -20,7 +20,7 @@ Il sert également à s'exercer à l'organisation d'une interface avec HTML, CSS
 
 
 
-\-Frontend : HTML5, CSS3, JavaScript
+\-Frontend : HTML5(dans des pages PHP), CSS3, JavaScript
 
 \-Backend : PHP, MySQL
 
@@ -36,7 +36,7 @@ Il sert également à s'exercer à l'organisation d'une interface avec HTML, CSS
 
 ├── /pages         #scripts côté client
 
-├─── /php           #scripts côté serveur
+├─── /php          #scripts côté serveur
 
 ├── /assets        # Images
 
@@ -69,5 +69,5 @@ Il sert également à s'exercer à l'organisation d'une interface avec HTML, CSS
 Pour accéder au site, il est nécessaire de lancer le serveur Apache depuis votre XAMPP Control Panel.
 
 Il faut également télécharger le dossier contenant le site.
-Dans votre navigateur, rentrer l'url suivante : http://localhost/Projet\_Web\_Fullstack/site/pages/index.php.
+Dans votre navigateur, rentrer l'url suivante : http://localhost/Projet_Web_Fullstack/site/pages/index.php.
 

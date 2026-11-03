@@ -97,8 +97,9 @@ h5{
     position: relative;
     width: 350px;
 }
- 
-#barre-de-recherche {
+
+
+.barre-de-recherche {
     background-color: rgba(0, 0, 0, 0.5);
     width: 100%;
     padding: 10px;
@@ -197,6 +198,10 @@ h5{
  
  
  
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> 2420fc8deaf350089e43032dca84e9a3ff0f27f7
 
 
 .container {
@@ -223,16 +228,6 @@ select {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
- 
- 
-/* CSS PAGE ADMIN_VIEW LOUIS */
-/* CSS PAGE ADMIN_VIEW LOUIS */
-/* CSS PAGE ADMIN_VIEW LOUIS */
-/* CSS PAGE ADMIN_VIEW LOUIS */
-/* CSS PAGE ADMIN_VIEW LOUIS */
-/* CSS PAGE ADMIN_VIEW LOUIS */
-/* CSS PAGE ADMIN_VIEW LOUIS */
-/* CSS PAGE ADMIN_VIEW LOUIS */
  
 
  
@@ -298,19 +293,6 @@ select:has(option[value="concert"]:checked),
 select:has(option[value=""]:checked) {
   color: white;
 }
- 
-
-/* CSS PAGE PAIEMENT LOUIS */
-/* CSS PAGE PAIEMENT LOUIS */
-/* CSS PAGE PAIEMENT LOUIS */
-/* CSS PAGE PAIEMENT LOUIS */
-/* CSS PAGE PAIEMENT LOUIS */
-/* CSS PAGE PAIEMENT LOUIS */
-/* CSS PAGE PAIEMENT LOUIS */
-/* CSS PAGE PAIEMENT LOUIS */
-/* CSS PAGE PAIEMENT LOUIS */
-/* CSS PAGE PAIEMENT LOUIS */
-/* CSS PAGE PAIEMENT LOUIS */
  
 .page_paiement {
     width: 90%;
@@ -860,7 +842,9 @@ main h3 {
 }
 
 
-
+#select-role {
+    color: black;
+}
 
 .evenement {
     max-width: 700px;
